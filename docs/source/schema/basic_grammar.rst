@@ -8,8 +8,8 @@ Here is the basic grammar of OpenBytes Schema:
 
    ---
    type: <type>
-   <type param 1>: <value 1>
-   <type param 2>: <value 2>
+   <type-param 1>: <value 1>
+   <type-param 2>: <value 2>
    ...: ...
    ...: ...
 

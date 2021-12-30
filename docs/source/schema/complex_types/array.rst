@@ -37,7 +37,7 @@ The ``array`` type represents a sequence elements which have the same type.
       -  `-`
       -  Represent the type of the items in the array.
 
-   -  -  ``items.<parameter_name>``
+   -  -  ``items.<type-param>``
       -  `-`
       -  False
       -  `-`

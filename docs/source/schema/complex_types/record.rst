@@ -39,7 +39,7 @@ type.
       -  True
       -  Represent the type of a record field.
 
-   -  -  ``fields.<index>.<parameter-name>``
+   -  -  ``fields.<index>.<type-param>``
       -  `-`
       -  False
       -  Represent the type parameter of a record field.
