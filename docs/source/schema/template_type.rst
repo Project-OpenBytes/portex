@@ -34,12 +34,9 @@ OpenBytes Schema provides ``template`` type to define customized configurable ty
       -  Indicate all the parameters for this template.
 
    -  -  ``params.<name>``
-
       -  |  JSON
          |  object
-
       -  True
-
       -  |  Every element in ``params`` defines a parameter:
          |  - <key> is name of the parameter
          |  - <value> is the basic info of the parameter

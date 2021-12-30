@@ -64,14 +64,10 @@ These two parameters should be put on the top level of the schema definition fil
          |  structure will referenced from that package.
 
    -  -  ``version``
-
       -  |  JSON
          |  object
-
       -  True
-
       -  `-`
-
       -  |  The revision of the package repo, it is very important to
          |  point out the revision explicitly because the latest status
          |  of a git repo will change constantly. Point out a specific
