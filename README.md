@@ -8,4 +8,4 @@ data in the table.
 
 This Github project manages the source code of the OpenBytes Schema design document.
 
-The full design document can be found in [documentation site](http://openbytes-schema.readthedocs.io).
+The full design document can be found in [documentation site](http://openbytes-schema.readthedocs.io/en/latest).
