@@ -10,6 +10,7 @@ The ``tensor`` type represents a N-dimensional array which all elements in it ha
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type

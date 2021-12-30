@@ -10,6 +10,7 @@ The ``array`` type represents a sequence elements which have the same type.
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type
@@ -21,7 +22,8 @@ The ``array`` type represents a sequence elements which have the same type.
       -  JSON integer
       -  False
       -  null
-      -  Represent the length of the array, used to define a array with fixed length.
+      -  |  Represent the length of the array,
+         |  used to define a array with fixed length.
 
    -  -  ``items``
       -  JSON object

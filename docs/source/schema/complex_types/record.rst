@@ -10,6 +10,7 @@ type.
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type

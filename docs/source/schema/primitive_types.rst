@@ -42,6 +42,7 @@ the range of the number.
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type

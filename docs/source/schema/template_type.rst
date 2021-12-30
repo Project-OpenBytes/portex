@@ -21,6 +21,7 @@ OpenBytes Schema provides ``template`` type to define customized configurable ty
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type
@@ -171,6 +172,7 @@ used to control whether the field exists.
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type

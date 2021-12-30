@@ -9,6 +9,7 @@ with at least one element, where each element is unique.
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type

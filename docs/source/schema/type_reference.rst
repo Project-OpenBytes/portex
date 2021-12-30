@@ -48,6 +48,7 @@ These two parameters should be put on the top level of the schema definition fil
 
 .. list-table::
    :header-rows: 1
+   :widths: auto
 
    -  -  name
       -  type
