@@ -23,7 +23,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "schema"
+project = "OpenBytes Schema"
 copyright = "2021, OpenBytes"  # pylint: disable=redefined-builtin
 author = "OpenBytes"
 
