@@ -37,7 +37,6 @@ legibility.
 
 .. toctree::
    :maxdepth: 2
-   :caption: Schema
 
    schema/basic_grammar
    schema/primitive_types
