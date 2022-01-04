@@ -18,7 +18,7 @@ The git repository is used as a carrier for a schema package. A schema package i
 developed and referenced throuth a public git repository.
 
 OpenBytes defines a set of standard formats for open datasets. These formats are put on a Github
-repo and distributed as a schema package. Which url is https://github.com/Graviti-AI/standard
+repo and distributed as a schema package. Which url is https://github.com/Project-OpenBytes/standard
 
 ********************************
  How to build a schema package?
@@ -60,7 +60,7 @@ These two parameters should be put on the top level of the schema definition fil
       -  |  JSON
          |  string
       -  False
-      -  "https://github.com/Graviti-AI/standard"
+      -  "https://github.com/Project-OpenBytes/standard"
       -  |  The url of the package repo, and the schema
          |  structure will referenced from that package.
 
@@ -69,10 +69,11 @@ These two parameters should be put on the top level of the schema definition fil
          |  object
       -  True
       -  `-`
-      -  |  The revision of the package repo, it is very important to
-         |  point out the revision explicitly because the latest status
-         |  of a git repo will change constantly. Point out a specific
-         |  revision to make the schema unchanged.
+      -  |  The revision of the package repo, it is very
+         |  important to point out the revision explicitly
+         |  because the latest status of a git repo will
+         |  change constantly. Point out a specific revision
+         |  to make the schema unchanged.
 
 .. _dot-grammar:
 
@@ -104,7 +105,7 @@ Example
 =======
 
 For example, a pre-defined ``Vector2D`` type needs to be referenced from a Github repo which url is
-https://github.com/Graviti-AI/standard.
+https://github.com/Project-OpenBytes/standard.
 
 The repo file structure is:
 
@@ -120,12 +121,12 @@ Here is how the ``Vector2D`` type be referenced:
 .. code:: yaml
 
    ---
-   repo: https://github.com/Graviti-AI/standard  # Use "repo" parameter to indicate the repo url
-   version: v1.0.0                               # Use "version" parameter to indicate the revision
+   repo: https://github.com/Project-OpenBytes/standard  # Use "repo" parameter to indicate the repo url
+   version: v1.0.0                                      # Use "version" parameter to indicate the revision
    type: record
    fields:
      - name: point1
-       type: geometry.Vector2D                   # Use "dot grammar" to reuse the pre-defined type
+       type: geometry.Vector2D                          # Use "dot grammar" to reuse the pre-defined type
 
      - name: point2
        type: geometry.Vector2D
