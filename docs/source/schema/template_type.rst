@@ -12,12 +12,12 @@ etc.
  Parameters
 ************
 
-OpenBytes Schema provides ``template`` type to define customized configurable type.
+OpenBytes Schema provides ``template`` type to define customized configurable types.
 
 |  Two parameters are provided in ``template`` type for defining the parameters and how the
-   parameters take affect:
+   parameters take effect:
 |   - ``params`` is used to indicate the parameters.
-|   - ``declaration`` is used to indicate how the parameters take affect.
+|   - ``declaration`` is used to indicate how the parameters take effect.
 
 .. list-table::
    :header-rows: 1
@@ -51,13 +51,13 @@ OpenBytes Schema provides ``template`` type to define customized configurable ty
    -  -  ``params.<name>.default``
       -  `-`
       -  False
-      -  The default value of this parameter, it is meaningless while this parameter is required.
+      -  The default value of this parameter. It is meaningless while this parameter is required.
 
    -  -  ``params.<name>.options``
       -  |  JSON
          |  array
       -  False
-      -  |  This parameter use a array to list all possible values of the parameter, if the input
+      -  |  This parameter use an array to list all possible values of the parameter, if the input
          |  parameter value is not listed in the array, the parameter will not be accepted.
 
    -  -  ``declaration``
@@ -65,7 +65,7 @@ OpenBytes Schema provides ``template`` type to define customized configurable ty
          |  object
       -  True
       -  |  The declaration of template, use ``$params.<name>`` to indicate how different
-         |  parameters take affect in the template.
+         |  parameters take effect in the template.
 
    -  -  ``declaration.type``
       -  |  JSON
@@ -137,7 +137,7 @@ Variable and Constant
 
 -  **Variable**: The symbol ``$`` is used to indicate variables, use ``$params.<name>`` to expand
    the input parameter in the template.
--  **Constant**: The JSON value is use to indicate constants. For example use ``0``, ``20.5`` to
+-  **Constant**: The JSON value is used to indicate constants. For example, use ``0``, ``20.5`` to
    represent numbers, use "cat", "dog" to represent strings.
 
 Conditional Statement

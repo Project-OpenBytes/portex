@@ -10,12 +10,12 @@ structures can be referenced from the package.
 
 .. tip::
 
-   Just like programming language, take python as an example. Python package is used to distribute a
-   set of functions which can be reused. OpenBytes schema also use package for distributing
+   Just like a programming language, take python as an example. Python package is used to distribute
+   a set of functions which can be reused. OpenBytes schema also uses package for distributing
    pre-defined schema structures.
 
 The git repository is used as a carrier for a schema package. A schema package is distributed,
-developed and referenced throuth a public git repository.
+developed, and referenced through a public git repository.
 
 OpenBytes defines a set of standard formats for open datasets. These formats are put on a Github
 repo and distributed as a schema package. Which url is https://github.com/Project-OpenBytes/standard
@@ -62,14 +62,14 @@ These two parameters should be put on the top level of the schema definition fil
       -  False
       -  "https://github.com/Project-OpenBytes/standard"
       -  |  The url of the package repo, and the schema
-         |  structure will referenced from that package.
+         |  structure will be referenced from that package.
 
    -  -  ``version``
       -  |  JSON
          |  object
       -  True
       -  `-`
-      -  |  The revision of the package repo, it is very
+      -  |  The revision of the package repo. It is very
          |  important to point out the revision explicitly
          |  because the latest status of a git repo will
          |  change constantly. Point out a specific revision
@@ -88,7 +88,7 @@ Dot grammar is:
 #. Use dot ``.`` to replace the file separator ( ``/`` for Linux and ``\`` for Windows);
 #. Remove the file extension.
 
-For example there are a schema repo with the following file structure:
+For example, there is a schema repo with the following file structure:
 
 .. code:: shell
 
@@ -98,7 +98,7 @@ For example there are a schema repo with the following file structure:
    │   └── Vector3D.yaml
    └── standard.yaml    # the standard.yaml file is used to indicate the root of the schema package.
 
-The schema file ``geometry/Vector2D.yaml`` need to be changed to ``geometry.Vector2D`` for
+The schema file ``geometry/Vector2D.yaml`` needs to be changed to ``geometry.Vector2D`` for
 referencing.
 
 Example
@@ -116,7 +116,7 @@ The repo file structure is:
    │   └── Vector2D.yaml
    └── standard.yaml    # the standard.yaml file is used to indicate the root of the schema package.
 
-Here is how the ``Vector2D`` type be referenced:
+Here is how the ``Vector2D`` type is referenced:
 
 .. code:: yaml
 

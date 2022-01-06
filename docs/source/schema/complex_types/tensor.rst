@@ -2,7 +2,7 @@
  tensor
 ########
 
-The ``tensor`` type represents a N-dimensional array which all elements in it have the same type.
+The ``tensor`` type represents an N-dimensional array in which all elements have the same type.
 
 |  Type ``tensor`` has two parameters: ``shape`` and ``dtype``:
 |   - ``shape`` is used to indicate the shape of the tensor.
@@ -50,7 +50,7 @@ The ``tensor`` type represents a N-dimensional array which all elements in it ha
       shape: [640, 480, 3]
       dtype: int
 
-#. a integer matrix with unlimited shape:
+#. an integer matrix with unlimited shape:
 
    .. code:: yaml
 

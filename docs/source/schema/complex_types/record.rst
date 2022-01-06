@@ -5,8 +5,8 @@
 The ``record`` type represents a labeled array capable of holding any data type, just like the
 struct in C++ or the Series in pandas.
 
-The parameter ``fields`` is provided for ``record`` to indicate the label name and the corresponding
-type.
+The parameter ``fields`` is provided for the ``record`` to indicate the label name and the
+corresponding type.
 
 .. list-table::
    :header-rows: 1
@@ -21,7 +21,7 @@ type.
       -  JSON array
       -  True
       -  |  Each element in the array represent a field of the record,
-         |  and the element order indicate the fields order.
+         |  and the element order indicate the order of the fields.
 
    -  -  ``fields.<index>``
       -  JSON object

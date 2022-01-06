@@ -21,7 +21,7 @@ The ``bytes`` type represents a sequence of 8-bit unsigned bytes.
  string
 ********
 
-The ``string`` type represents a sequence of UTF-8 encoded character.
+The ``string`` type represents a sequence of UTF-8 encoded characters.
 
 
 .. _numeric_types:
