@@ -2,7 +2,7 @@
  Type Reference
 ################
 
-OpenBytes Schema supports Type Reference, which means the schema structure can be defined and shared
+Portex supports Type Reference, which means the schema structure can be defined and shared
 in the community.
 
 The **package** is used to distribute a group of pre-defined schema structures. And the schema
@@ -11,8 +11,8 @@ structures can be referenced from the package.
 .. tip::
 
    Just like a programming language, take python as an example. Python package is used to distribute
-   a set of functions which can be reused. OpenBytes schema also uses package for distributing
-   pre-defined schema structures.
+   a set of functions which can be reused. Portex also uses package for distributing pre-defined
+   schema structures.
 
 The git repository is used as a carrier for a schema package. A schema package is distributed,
 developed, and referenced through a public git repository.

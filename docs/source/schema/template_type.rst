@@ -2,7 +2,7 @@
  Template Type
 ###############
 
-One of the most important features in OpenBytes Schema is configurable type, different types provide
+One of the most important features in Portex is configurable type, different types provide
 different parameters to adjust their behaviors.
 
 Such as ``numeric types`` provide ``maximum`` and ``minimum``, ``record`` type provides ``fields``
@@ -12,7 +12,7 @@ etc.
  Parameters
 ************
 
-OpenBytes Schema provides ``template`` type to define customized configurable types.
+Portex provides ``template`` type to define customized configurable types.
 
 |  Two parameters are provided in ``template`` type for defining the parameters and how the
    parameters take effect:
@@ -143,7 +143,7 @@ Variable and Constant
 Conditional Statement
 =====================
 
-OpenBytes Schema provides the following basic conditional binary operators:
+Portex provides the following basic conditional binary operators:
 
 -  ``==``
 -  ``!=``
@@ -164,8 +164,7 @@ statement which returns a bool value.
  Parameter "existIf"
 *********************
 
-OpenBytes Schema provides a special parameter ``existIf`` to control whether a field in ``record``
-exists.
+Portex provides a special parameter ``existIf`` to control whether a field in ``record`` exists.
 
 When ``declaration.type`` is ``record``, the parameter ``declaration.fields.<index>.existIf`` can be
 used to control whether the field exists.
@@ -246,7 +245,7 @@ a Point type which can be configured to be 2D or 3D:
  If Statement
 **************
 
-OpenBytes Schema provides ``if-then-else`` for if statement.
+Portex provides ``if-then-else`` for if statement.
 
 Grammar:
 

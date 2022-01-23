@@ -2,7 +2,7 @@
  Basic Grammar
 ###############
 
-Here is the basic grammar of OpenBytes Schema:
+Here is the basic grammar of Portex:
 
 .. code:: yaml
 
@@ -13,12 +13,12 @@ Here is the basic grammar of OpenBytes Schema:
    ...: ...
    ...: ...
 
-Schema provides the basic key ``type``. Its value means the type of data and presented by a JSON
+Portex provides the basic key ``type``. Its value means the type of data and presented by a JSON
 string. The bulitin supported types can be found in :doc:`/schema/primitive_types` and
 :doc:`/schema/complex_types/index`.
 
-The most important feature of OpenBytes schema is that the type is configurable, different types has
-different parameters.
+The most important feature of Portex is that the type is configurable, different types has different
+parameters.
 
 For example, the :ref:`numeric types <numeric_types>` ``int`` has parameters ``minimum`` and
 ``maximum`` which limits the range of the ``int`` number.

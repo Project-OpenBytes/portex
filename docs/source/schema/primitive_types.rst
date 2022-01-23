@@ -2,7 +2,7 @@
  Primitive Types
 #################
 
-OpenBytes Schema provides a set of primitive types:
+Portex provides a set of primitive types:
 
 *********
  boolean
@@ -30,7 +30,7 @@ The ``string`` type represents a sequence of UTF-8 encoded characters.
  numeric types
 ***************
 
-There are four numeric types in OpenBytes Schema, they share the same parameters.
+There are four numeric types in Portex, they share the same parameters.
 
 -  ``int``: 32-bit signed integer.
 -  ``long``: 64-bit signed integer.
