@@ -20,8 +20,8 @@ corresponding type.
    -  -  ``fields``
       -  JSON array
       -  True
-      -  |  Each element in the array represent a field of the record,
-         |  and the element order indicate the order of the fields.
+      -  |  Each element in the array represents a field of the record,
+         |  and the element order indicates the order of the fields.
 
    -  -  ``fields.<index>``
       -  JSON object
@@ -79,7 +79,7 @@ corresponding type.
 
         - name: gender
           type: enum
-          values: [male, female]
+          values: [male, female, other]
 
         - name: age
           type: int
@@ -96,7 +96,7 @@ corresponding type.
    | <student name> | <student gender> | <student age> | <student number> |
    +----------------+------------------+---------------+------------------+
 
-#. a 2D line which represented by two 2D point coordinates:
+#. a 2D line which is represented by two 2D point coordinates:
 
    .. code:: yaml
 
@@ -131,5 +131,5 @@ corresponding type.
    | <x coordinate> | <y coordinate> | <x coordinate> | <y coordinate>  |
    +----------------+----------------+----------------+-----------------+
 
-   this example shows the record can be nested, it can be used to support the multi-indexing feature
-   in table structure
+   This example shows the record can be nested, it can be used to support the multi-indexing feature
+   in table structure.

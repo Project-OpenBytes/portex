@@ -14,8 +14,7 @@ etc.
 
 Portex provides ``template`` type to define customized configurable types.
 
-|  Two parameters are provided in ``template`` type for defining the parameters and how the
-   parameters take effect:
+|  Two parameters are provided in ``template`` type:
 |   - ``params`` is used to indicate the parameters.
 |   - ``declaration`` is used to indicate how the parameters take effect.
 
@@ -51,14 +50,14 @@ Portex provides ``template`` type to define customized configurable types.
    -  -  ``params.<name>.default``
       -  `-`
       -  False
-      -  The default value of this parameter. It is meaningless while this parameter is required.
+      -  The default value of this parameter. It is meaningless when this parameter is required.
 
    -  -  ``params.<name>.options``
       -  |  JSON
          |  array
       -  False
-      -  |  This parameter use an array to list all possible values of the parameter, if the input
-         |  parameter value is not listed in the array, the parameter will not be accepted.
+      -  |  This parameter uses an array to list all possible values, if the input parameter value
+         |  is not listed in the array, it will not be accepted.
 
    -  -  ``declaration``
       -  |  JSON
@@ -183,7 +182,7 @@ used to control whether the field exists.
       -  JSON boolean
       -  False
       -  True
-      -  The field exists if ``existIf`` is True, otherwise not exist.
+      -  The field exists if ``existIf`` is True, otherwise it does not exist.
 
 **Examples**:
 
@@ -253,9 +252,9 @@ Grammar:
 
    if: <expression>
    then:
-     <the branch while the expression is True>
+     <the branch when the expression is True>
    else:
-     <the branch while the expression is False>
+     <the branch when the expression is False>
 
 **Examples**:
 

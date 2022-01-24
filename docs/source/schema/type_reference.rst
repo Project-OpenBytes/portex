@@ -5,20 +5,20 @@
 Portex supports Type Reference, which means the schema structure can be defined and shared
 in the community.
 
-The **package** is used to distribute a group of pre-defined schema structures. And the schema
+A **package** is used to distribute a group of pre-defined schema structures. And the schema
 structures can be referenced from the package.
 
 .. tip::
 
-   Just like a programming language, take python as an example. Python package is used to distribute
-   a set of functions which can be reused. Portex also uses package for distributing pre-defined
-   schema structures.
+   Just like a programming language, Portex also uses packages for distributing pre-defined schema
+   structures. Take python as an example. Python package is used to distribute a set of functions
+   which can be reused.
 
 The git repository is used as a carrier for a schema package. A schema package is distributed,
 developed, and referenced through a public git repository.
 
 OpenBytes defines a set of standard formats for open datasets. These formats are put on a Github
-repo and distributed as a schema package. Which url is https://github.com/Project-OpenBytes/standard
+repo and distributed as a schema package. Whose url is https://github.com/Project-OpenBytes/standard
 
 ********************************
  How to build a schema package?
@@ -33,7 +33,8 @@ repo and distributed as a schema package. Which url is https://github.com/Projec
 ***************************************
 
 #. Use :ref:`root-parameters` ``repo`` and ``version`` to indicate the repo url and version;
-#. Put the schema structure name need to be referenced in the ``type`` field by :ref:`dot-grammar`.
+#. Put the schema structure name which needs to be referenced in the ``type`` field by
+   :ref:`dot-grammar`.
 
 .. _root-parameters:
 
@@ -104,7 +105,7 @@ referencing.
 Example
 =======
 
-For example, a pre-defined ``Vector2D`` type needs to be referenced from a Github repo which url is
+For example, a pre-defined ``Vector2D`` type needs to be referenced from a Github repo whose url is
 https://github.com/Project-OpenBytes/standard.
 
 The repo file structure is:

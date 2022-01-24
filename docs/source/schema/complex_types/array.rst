@@ -6,7 +6,7 @@ The ``array`` type represents a sequence of elements which have the same type.
 
 |  Type ``array`` has two parameters ``length`` and ``items``:
 |   - ``length`` is used to indicate the length of the array.
-|   - ``items`` is used to indicate the type of items in the array.
+|   - ``items`` is used to indicate the type of the items in the array.
 
 .. list-table::
    :header-rows: 1
@@ -35,13 +35,13 @@ The ``array`` type represents a sequence of elements which have the same type.
       -  JSON string
       -  True
       -  `-`
-      -  Represent the type of items in the array.
+      -  Represent the type of the items in the array.
 
    -  -  ``items.<type-param>``
       -  `-`
       -  False
       -  `-`
-      -  Represent the type parameter of items in the array.
+      -  Represent the type parameter of the items in the array.
 
 **Examples**:
 
@@ -55,7 +55,7 @@ The ``array`` type represents a sequence of elements which have the same type.
         type: int
         minimum: 0
 
-#. an integer array with fixed length
+#. an integer array with fixed length:
 
    .. code:: yaml
 
@@ -84,9 +84,9 @@ The ``array`` type represents a sequence of elements which have the same type.
 
    .. note::
 
-      ``array`` + ``record`` = ``table``
+      ``array`` + ``record`` = table
 
-   a ``record`` can be understood as a row in the table, then ``array`` put many rows together to
+   A ``record`` can be understood as a row in the table, then ``array`` put many rows together to
    get a table.
 
    So the polygon array can be visually represented in table structure:

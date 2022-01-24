@@ -80,7 +80,7 @@ the range of the number.
       minimum: 0
       maximum: 0
 
-#. single precision floating-point number greater than or equal to 0:
+#. single precision floating-point number no less than 0:
 
    .. code:: yaml
 
