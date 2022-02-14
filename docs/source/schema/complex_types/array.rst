@@ -4,9 +4,9 @@
 
 The ``array`` type represents a sequence of elements which have the same type.
 
-|  Type ``array`` has two parameters ``length`` and ``items``:
-|   - ``length`` is used to indicate the length of the array.
+|  Type ``array`` has two parameters ``items`` and ``length``:
 |   - ``items`` is used to indicate the type of the items in the array.
+|   - ``length`` is used to indicate the length of the array.
 
 .. list-table::
    :header-rows: 1
@@ -17,13 +17,6 @@ The ``array`` type represents a sequence of elements which have the same type.
       -  required
       -  default
       -  description
-
-   -  -  ``length``
-      -  JSON integer
-      -  False
-      -  null
-      -  |  Represent the length of the array,
-         |  used to define an array with a fixed length.
 
    -  -  ``items``
       -  JSON object
@@ -43,6 +36,13 @@ The ``array`` type represents a sequence of elements which have the same type.
       -  `-`
       -  Represent the type parameter of the items in the array.
 
+   -  -  ``length``
+      -  JSON integer
+      -  False
+      -  null
+      -  |  Represent the length of the array,
+         |  used to define an array with a fixed length.
+
 **Examples**:
 
 #. a natural number array with unlimited length:
@@ -61,9 +61,9 @@ The ``array`` type represents a sequence of elements which have the same type.
 
       ---
       type: array
-      length: 2
       items:
         type: int
+      length: 2
 
 #. a polygon represented by its vertex coordinates:
 
