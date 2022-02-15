@@ -25,7 +25,7 @@ repo and distributed as a schema package. Whose url is https://github.com/Projec
 ********************************
 
 #. New a remote git repo;
-#. Commit a file named ``standard.yaml`` to indicate the root path of the schema;
+#. Commit a file named ``ROOT.yaml`` to indicate the root path of the schema;
 #. Commit the schema structure files which need to be reused into the git repo.
 
 ***************************************
@@ -97,7 +97,7 @@ For example, there is a schema repo with the following file structure:
    ├── geometry
    │   ├── Vector2D.yaml
    │   └── Vector3D.yaml
-   └── standard.yaml    # the standard.yaml file is used to indicate the root of the schema package.
+   └── ROOT.yaml    # the ROOT.yaml file is used to indicate the root of the schema package.
 
 The schema file ``geometry/Vector2D.yaml`` needs to be changed to ``geometry.Vector2D`` for
 referencing.
@@ -115,7 +115,7 @@ The repo file structure is:
    .
    ├── geometry
    │   └── Vector2D.yaml
-   └── standard.yaml    # the standard.yaml file is used to indicate the root of the schema package.
+   └── ROOT.yaml    # the ROOT.yaml file is used to indicate the root of the schema package.
 
 Here is how the ``Vector2D`` type is referenced:
 
