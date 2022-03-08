@@ -52,7 +52,7 @@ The ``array`` type represents a sequence of elements which have the same type.
       ---
       type: array
       items:
-        type: int
+        type: int32
         minimum: 0
 
 #. an integer array with fixed length:
@@ -62,7 +62,7 @@ The ``array`` type represents a sequence of elements which have the same type.
       ---
       type: array
       items:
-        type: int
+        type: int32
       length: 2
 
 #. a polygon represented by its vertex coordinates:
@@ -75,10 +75,10 @@ The ``array`` type represents a sequence of elements which have the same type.
         type: record
         fields:
           - name: x
-            type: int
+            type: int32
 
           - name: y
-            type: int
+            type: int32
 
    when the item type is ``record``, the behavior of an ``array`` will change to a table:
 

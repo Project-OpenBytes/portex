@@ -32,10 +32,10 @@ The ``string`` type represents a sequence of UTF-8 encoded characters.
 
 There are four numeric types in Portex, they share the same parameters.
 
--  ``int``: 32-bit signed integer.
--  ``long``: 64-bit signed integer.
--  ``float``: single precision (32-bit) IEEE 754 floating-point number.
--  ``double``: double precision (64-bit) IEEE 754 floating-point number
+-  ``int32``: 32-bit signed integer.
+-  ``int64``: 64-bit signed integer.
+-  ``float32``: single precision (32-bit) IEEE 754 floating-point number.
+-  ``float64``: double precision (64-bit) IEEE 754 floating-point number
 
 There are two parameters for numeric type: ``minimum`` and ``maximum``, they are used to indicate
 the range of the number.
@@ -69,14 +69,14 @@ the range of the number.
    .. code:: yaml
 
       ---
-      type: int
+      type: int32
 
 #. 32-bits signed integer range from 0 to 100:
 
    .. code:: yaml
 
       ---
-      type: int
+      type: int32
       minimum: 0
       maximum: 0
 
@@ -85,5 +85,5 @@ the range of the number.
    .. code:: yaml
 
       ---
-      type: float
+      type: float32
       minimum: 0

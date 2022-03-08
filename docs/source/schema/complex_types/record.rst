@@ -54,10 +54,10 @@ corresponding type.
       type: record
       fields:
         - name: x
-          type: int
+          type: int32
 
         - name: y
-          type: int
+          type: int32
 
    it can be visually represented in table structure:
 
@@ -82,7 +82,7 @@ corresponding type.
           values: [male, female, other]
 
         - name: age
-          type: int
+          type: int32
           minimum: 0
 
         - name: student number
@@ -107,19 +107,19 @@ corresponding type.
           type: record
           fields:
             - name: x
-              type: int
+              type: int32
 
             - name: y
-              type: int
+              type: int32
 
         - name: point2
           type: record
           fields:
             - name: x
-              type: int
+              type: int32
 
             - name: y
-              type: int
+              type: int32
 
    it can be visually represented in table structure:
 

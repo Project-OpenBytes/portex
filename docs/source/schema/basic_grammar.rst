@@ -20,15 +20,15 @@ string. The bulitin supported types can be found in :doc:`/schema/primitive_type
 The most important feature of Portex is that the type is configurable, different types has different
 parameters.
 
-For example, the :ref:`numeric types <numeric_types>` ``int`` has parameters ``minimum`` and
-``maximum`` which limits the range of the ``int`` number.
+For example, the :ref:`numeric types <numeric_types>` ``int32`` has parameters ``minimum`` and
+``maximum`` which limits the range of the ``int32`` number.
 
 So an integer in the range 0~100 can be defined:
 
 .. code:: yaml
 
    ---
-   type: int
+   type: int32
    minimum: 0
    maximum: 100
 

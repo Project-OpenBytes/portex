@@ -39,7 +39,7 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       ---
       type: tensor
       shape: [3, 3]
-      dtype: int
+      dtype: int32
 
 #. a 640x480 image tensor with 3 channels:
 
@@ -48,7 +48,7 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       ---
       type: tensor
       shape: [640, 480, 3]
-      dtype: int
+      dtype: int32
 
 #. an integer matrix with unlimited shape:
 
@@ -57,4 +57,4 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       ---
       type: tensor
       shape: [null, null]
-      dtype: int
+      dtype: int32

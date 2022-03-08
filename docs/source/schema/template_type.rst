@@ -88,9 +88,9 @@ a Point type with its coordinates data type configurable:
       type: template
       params:
         dtype:
-          required: false          # "dtype" is not a required parameter
-          default: float           # the default value of "dtype" is "float"
-          options: [float, double] # the possible values of "dtype" is "float" and "double"
+          required: false             # "dtype" is not a required parameter
+          default: float32            # the default value of "dtype" is "float32"
+          options: [float32, float64] # the possible values of "dtype" is "float32" and "float64"
 
       declaration:
         type: record
@@ -111,21 +111,21 @@ a Point type with its coordinates data type configurable:
       fields:
         - name: point1
           type: geometry.Point
-          dtype: double
+          dtype: float64
 
         - name: point2
           type: geometry.Point
-          dtype: double
+          dtype: float64
 
    it can be visually represented in table structure:
 
-   +----------------+----------------+----------------+-----------------+
-   | point1                          | point2                           |
-   +----------------+----------------+----------------+-----------------+
-   | x              | y              | x              | y               |
-   +================+================+================+=================+
-   | <double value> | <double value> | <double value> | <double value>  |
-   +----------------+----------------+----------------+-----------------+
+   +-----------------+-----------------+-----------------+-----------------+
+   | point1                            | point2                            |
+   +-----------------+-----------------+-----------------+-----------------+
+   | x               | y               | x               | y               |
+   +=================+=================+=================+=================+
+   | <float64 value> | <float64 value> | <float64 value> | <float64 value> |
+   +-----------------+-----------------+-----------------+-----------------+
 
 ************
  Expression
@@ -202,17 +202,17 @@ a Point type which can be configured to be 2D or 3D:
         type: record
         fields:
           - name: x
-            type: int
+            type: int32
 
           - name: y
-            type: int
+            type: int32
 
           - name: z
             existIf: $params.dimension == 3D # When "dimension" is "3D", the "z" field exists,
                                              # this record represent a 3D point with 3 fields: x, y, z
                                              # When "dimension" is "2D", the "z" field does not exist,
                                              # this record represent a 2D point with 2 fields: x, y
-            type: int
+            type: int32
 
    after definition, this ``Point`` type can be referenced with a parameter ``dimension``:
 
