@@ -208,10 +208,10 @@ a Point type which can be configured to be 2D or 3D:
             type: int32
 
           - name: z
-            existIf: $params.dimension == 3D # When "dimension" is "3D", the "z" field exists,
-                                             # this record represent a 3D point with 3 fields: x, y, z
-                                             # When "dimension" is "2D", the "z" field does not exist,
-                                             # this record represent a 2D point with 2 fields: x, y
+            existIf: $params.dimension == "3D" # When "dimension" is "3D", the "z" field exists,
+                                               # this record represent a 3D point with 3 fields: x, y, z
+                                               # When "dimension" is "2D", the "z" field does not exist,
+                                               # this record represent a 2D point with 2 fields: x, y
             type: int32
 
    after definition, this ``Point`` type can be referenced with a parameter ``dimension``:
