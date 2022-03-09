@@ -1,12 +1,12 @@
-################
- Type Reference
-################
+#############
+ Type Import
+#############
 
-Portex supports Type Reference, which means the schema structure can be defined and shared
-in the community.
+Portex supports Type Import, which means the schema structure can be defined and shared in the
+community.
 
 A **package** is used to distribute a group of pre-defined schema structures. And the schema
-structures can be referenced from the package.
+structures can be imported from the package.
 
 .. tip::
 
@@ -15,7 +15,7 @@ structures can be referenced from the package.
    which can be reused.
 
 The git repository is used as a carrier for a schema package. A schema package is distributed,
-developed, and referenced through a public git repository.
+developed, and imported through a public git repository.
 
 OpenBytes defines a set of standard formats for open datasets. These formats are put on a Github
 repo and distributed as a schema package. Whose url is https://github.com/Project-OpenBytes/standard
@@ -28,24 +28,21 @@ repo and distributed as a schema package. Whose url is https://github.com/Projec
 #. Commit a file named ``ROOT.yaml`` to indicate the root path of the schema;
 #. Commit the schema structure files which need to be reused into the git repo.
 
-***************************************
- How to reference schema from package?
-***************************************
+*************************************
+ How to import types from a package?
+*************************************
 
-#. Use :ref:`root-parameters` ``repo`` and ``version`` to indicate the repo url and version;
-#. Put the schema structure name which needs to be referenced in the ``type`` field by
-   :ref:`dot-grammar`.
+#. Use :ref:`root-parameters` ``imports`` to indicate what types needs to be imported and which
+   package these types come from;
+#. Put the schema structure name or alias which needs to be referenced in the ``type`` field.
 
 .. _root-parameters:
 
 Parameters
 ==========
 
-|  Two parameters ``repo`` and ``version`` is provided for type reference:
-|   - ``repo`` is used to indicate the url of the package repo.
-|   - ``version`` is used to indicate the revision of the package repo.
-
-These two parameters should be put on the top level of the schema definition file.
+The parameter ``imports`` is provided for type importing, and it should be put on the top level of
+the schema definition file.
 
 .. list-table::
    :header-rows: 1
@@ -54,27 +51,50 @@ These two parameters should be put on the top level of the schema definition fil
    -  -  name
       -  type
       -  required
-      -  default
       -  description
 
-   -  -  ``repo``
+   -  -  ``imports``
+      -  |  JSON
+         |  object
+      -  False
+      -  |  A JSON object which indicates what types needs to be imported and which package
+         |  these types come from;
+
+   -  -  ``imports.repo``
       -  |  JSON
          |  string
-      -  False
-      -  "https://github.com/Project-OpenBytes/standard"
-      -  |  The url of the package repo, and the schema
-         |  structure will be referenced from that package.
+      -  True
+      -  |  The url and the revision of the schema package, which follows the following format:
+         |  "<url>@<rev>"
 
-   -  -  ``version``
+   -  -  ``imports.types``
+      -  |  JSON
+         |  array
+      -  True
+      -  A JSON array to indicate all types needs to be imported from the package to this file.
+
+   -  -  ``imports.types.<index>``
       -  |  JSON
          |  object
       -  True
-      -  `-`
-      -  |  The revision of the package repo. It is very
-         |  important to point out the revision explicitly
-         |  because the latest status of a git repo will
-         |  change constantly. Point out a specific revision
-         |  to make the schema unchanged.
+      -  Each item in the ``imports.types`` array indicates one imported type.
+
+   -  -  ``imports.types.<index>.name``
+      -  |  JSON
+         |  string
+      -  True
+      -  The name of the imported type which follows the :ref:`dot-grammar`
+
+   -  -  ``imports.types.<index>.alias``
+
+      -  |  JSON
+         |  string
+
+      -  False
+
+      -  |  The alias of the imported type. If this field is given, it will replace the
+         |  ``imports.types.<index>.name`` as the unique identifier of the imported type.
+         |  This field is useful for solving the type name conflicts in different package.
 
 .. _dot-grammar:
 
@@ -105,8 +125,8 @@ referencing.
 Example
 =======
 
-For example, a pre-defined ``Vector2D`` type needs to be referenced from a Github repo whose url is
-https://github.com/Project-OpenBytes/standard.
+For example, two pre-defined types ``Vector2D`` and ``Vector3D`` needs to be imported from a Github
+repo, whose url is https://github.com/Project-OpenBytes/standard and the tag is ``v1.0.0``.
 
 The repo file structure is:
 
@@ -114,20 +134,39 @@ The repo file structure is:
 
    .
    ├── geometry
-   │   └── Vector2D.yaml
+   │   ├── Vector2D.yaml
+   │   └── Vector3D.yaml
    └── ROOT.yaml    # the ROOT.yaml file is used to indicate the root of the schema package.
 
-Here is how the ``Vector2D`` type is referenced:
+Here is how the ``Vector2D`` and ``Vector3D`` are imported:
 
 .. code:: yaml
 
    ---
-   repo: https://github.com/Project-OpenBytes/standard  # Use "repo" parameter to indicate the repo url
-   version: v1.0.0                                      # Use "version" parameter to indicate the revision
+   imports:
+       repo: https://github.com/Project-OpenBytes/standard@v1.0.0  # Use "<url>@<rev>" format to
+                                                                   # point out where the source code
+                                                                   # comes from.
+       types:
+         - name: geometry.Vector2D                                 # Use "dot grammar" to point out
+                                                                   # the type defined in
+                                                                   # "geometry/Vector2D.yaml" needs
+                                                                   # to be imported to this file.
+         - name: geometry.Vector3D
+           alias: Vector3D                                         # Use "alias" field to rename the
+                                                                   # imported type. "alias" will
+                                                                   # replace the origin name as the
+                                                                   # unique identifier. Which means
+                                                                   # "geometry.Vector3D" will be
+                                                                   # treated as illegal name. Only
+                                                                   # "Vector3D" can be used for
+                                                                   # referencing the imported type.
+
    type: record
    fields:
-     - name: point1
-       type: geometry.Vector2D                          # Use "dot grammar" to reuse the pre-defined type
-
-     - name: point2
-       type: geometry.Vector2D
+     - name: point2d
+       type: geometry.Vector2D       # Use the "name" defined in the "imports" field to reuse
+                                     # the pre-defined type.
+     - name: point3d
+       type: Vector3D                # Use the "alias" defined in the "imports" field to reuse
+                                     # the pre-defined type.
