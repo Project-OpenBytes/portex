@@ -106,7 +106,6 @@ a Point type with its coordinates data type configurable:
    .. code:: yaml
 
       ---
-      version: v1.0.0
       type: record
       fields:
         - name: point1
@@ -219,7 +218,6 @@ a Point type which can be configured to be 2D or 3D:
    .. code:: yaml
 
       ---
-      version: v1.0.0
       type: record
       fields:
         - name: point2D
@@ -282,7 +280,6 @@ an animal enum type which the letter case of the value is configuable:
    .. code:: yaml
 
       ---
-      version: v1.0.0
       type: record
       fields:
         - name: upperCaseAnimal
