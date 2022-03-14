@@ -144,23 +144,23 @@ Here is how the ``Vector2D`` and ``Vector3D`` are imported:
 
    ---
    imports:
-       repo: https://github.com/Project-OpenBytes/standard@v1.0.0  # Use "<url>@<rev>" format to
-                                                                   # point out where the source code
-                                                                   # comes from.
-       types:
-         - name: geometry.Vector2D                                 # Use "dot grammar" to point out
-                                                                   # the type defined in
-                                                                   # "geometry/Vector2D.yaml" needs
-                                                                   # to be imported to this file.
-         - name: geometry.Vector3D
-           alias: Vector3D                                         # Use "alias" field to rename the
-                                                                   # imported type. "alias" will
-                                                                   # replace the origin name as the
-                                                                   # unique identifier. Which means
-                                                                   # "geometry.Vector3D" will be
-                                                                   # treated as illegal name. Only
-                                                                   # "Vector3D" can be used for
-                                                                   # referencing the imported type.
+     repo: https://github.com/Project-OpenBytes/standard@v1.0.0  # Use "<url>@<rev>" format to point
+                                                                 # out where the source code comes
+                                                                 # from.
+     types:
+       - name: geometry.Vector2D                                 # Use "dot grammar" to point out
+                                                                 # the type defined in
+                                                                 # "geometry/Vector2D.yaml" needs to
+                                                                 # be imported to this file.
+       - name: geometry.Vector3D
+         alias: Vector3D                                         # Use "alias" field to rename the
+                                                                 # imported type. "alias" will
+                                                                 # replace the origin name as the
+                                                                 # unique identifier. Which means
+                                                                 # "geometry.Vector3D" will be
+                                                                 # treated as illegal name. Only
+                                                                 # "Vector3D" can be used for
+                                                                 # referencing the imported type.
 
    type: record
    fields:
