@@ -55,37 +55,44 @@ the schema definition file.
 
    -  -  ``imports``
       -  |  JSON
-         |  object
+         |  array
       -  False
       -  |  A JSON object which indicates what types needs to be imported and which package
          |  these types come from;
 
-   -  -  ``imports.repo``
+   -  -  ``imports.<index>``
+      -  |  JSON
+         |  object
+      -  True
+      -  |  Each item in the ``imports`` array indicates a group of imported types which come from
+         |  a same package
+
+   -  -  ``imports.<index>.repo``
       -  |  JSON
          |  string
       -  True
       -  |  The url and the revision of the schema package, which follows the following format:
          |  "<url>@<rev>"
 
-   -  -  ``imports.types``
+   -  -  ``imports.<index>.types``
       -  |  JSON
          |  array
       -  True
-      -  A JSON array to indicate all types needs to be imported from the package to this file.
+      -  A JSON array to indicate the types needs to be imported from the package to this file.
 
-   -  -  ``imports.types.<index>``
+   -  -  ``imports.<index>.types.<index>``
       -  |  JSON
          |  object
       -  True
-      -  Each item in the ``imports.types`` array indicates one imported type.
+      -  Each item in the ``imports.<index>.types`` array indicates one imported type.
 
-   -  -  ``imports.types.<index>.name``
+   -  -  ``imports.<index>.types.<index>.name``
       -  |  JSON
          |  string
       -  True
       -  The name of the imported type which follows the :ref:`dot-grammar`
 
-   -  -  ``imports.types.<index>.alias``
+   -  -  ``imports.<index>.types.<index>.alias``
 
       -  |  JSON
          |  string
@@ -144,23 +151,23 @@ Here is how the ``Vector2D`` and ``Vector3D`` are imported:
 
    ---
    imports:
-     repo: https://github.com/Project-OpenBytes/standard@v1.0.0  # Use "<url>@<rev>" format to point
-                                                                 # out where the source code comes
-                                                                 # from.
-     types:
-       - name: geometry.Vector2D                                 # Use "dot grammar" to point out
-                                                                 # the type defined in
-                                                                 # "geometry/Vector2D.yaml" needs to
-                                                                 # be imported to this file.
-       - name: geometry.Vector3D
-         alias: Vector3D                                         # Use "alias" field to rename the
-                                                                 # imported type. "alias" will
-                                                                 # replace the origin name as the
-                                                                 # unique identifier. Which means
-                                                                 # "geometry.Vector3D" will be
-                                                                 # treated as illegal name. Only
-                                                                 # "Vector3D" can be used for
-                                                                 # referencing the imported type.
+     - repo: https://github.com/Project-OpenBytes/standard@v1.0.0  # Use "<url>@<rev>" format to
+                                                                   # point out where the source code
+                                                                   # comes from.
+       types:
+         - name: geometry.Vector2D                                 # Use "dot grammar" to point out
+                                                                   # the type defined in
+                                                                   # "geometry/Vector2D.yaml" needs
+                                                                   # to be imported to this file.
+         - name: geometry.Vector3D
+           alias: Vector3D                                         # Use "alias" field to rename the
+                                                                   # imported type. "alias" will
+                                                                   # replace the origin name as the
+                                                                   # unique identifier. Which means
+                                                                   # "geometry.Vector3D" will be
+                                                                   # treated as illegal name. Only
+                                                                   # "Vector3D" can be used for
+                                                                   # referencing the imported type.
 
    type: record
    fields:
