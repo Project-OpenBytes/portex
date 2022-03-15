@@ -5,26 +5,26 @@
 Portex supports Type Import, which means the schema structure can be defined and shared in the
 community.
 
-A **package** is used to distribute a group of pre-defined schema structures. And the schema
-structures can be imported from the package.
+A **package** is used to distribute a group of pre-defined types. And these types can be imported
+from the package.
 
 .. tip::
 
-   Just like a programming language, Portex also uses packages for distributing pre-defined schema
-   structures. Take python as an example. Python package is used to distribute a set of functions
-   which can be reused.
+   Just like a programming language, Portex also uses packages for distributing pre-defined types.
+   Take python as an example. Python package is used to distribute a set of functions which can be
+   reused.
 
 The git repository is used as a carrier for a schema package. A schema package is distributed,
 developed, and imported through a public git repository.
 
 OpenBytes defines a set of standard formats for open datasets. These formats are put on a Github
-repo and distributed as a schema package. Whose url is https://github.com/Project-OpenBytes/standard
+repo and distributed as a schema package whose url is https://github.com/Project-OpenBytes/standard.
 
 ********************************
  How to build a schema package?
 ********************************
 
-#. New a remote git repo;
+#. Create a remote git repo;
 #. Commit a file named ``ROOT.yaml`` to indicate the root path of the schema;
 #. Commit the schema structure files which need to be reused into the git repo.
 
@@ -101,18 +101,18 @@ the schema definition file.
 
       -  |  The alias of the imported type. If this field is given, it will replace the
          |  ``imports.types.<index>.name`` as the unique identifier of the imported type.
-         |  This field is useful for solving the type name conflicts in different package.
+         |  This field is useful for solving the type name conflicts in different packages.
 
 .. _dot-grammar:
 
 Dot Grammar
 ===========
 
-The **doc grammar** is used for referencing pre-defined schema structures.
+The **doc grammar** is used for referencing pre-defined type.
 
 Dot grammar is:
 
-#. Base on the file path of the schema structure file;
+#. Based on the file path of the schema structure file;
 #. Use dot ``.`` to replace the file separator ( ``/`` for Linux and ``\`` for Windows);
 #. Remove the file extension.
 
@@ -126,13 +126,13 @@ For example, there is a schema repo with the following file structure:
    │   └── Vector3D.yaml
    └── ROOT.yaml    # the ROOT.yaml file is used to indicate the root of the schema package.
 
-The schema file ``geometry/Vector2D.yaml`` needs to be changed to ``geometry.Vector2D`` for
+The schema file ``geometry/Vector2D.yaml`` needs to be written as ``geometry.Vector2D`` for
 referencing.
 
 Example
 =======
 
-For example, two pre-defined types ``Vector2D`` and ``Vector3D`` needs to be imported from a Github
+For example, two pre-defined types ``Vector2D`` and ``Vector3D`` need to be imported from a Github
 repo, whose url is https://github.com/Project-OpenBytes/standard and the tag is ``v1.0.0``.
 
 The repo file structure is:
@@ -157,8 +157,9 @@ Here is how the ``Vector2D`` and ``Vector3D`` are imported:
        types:
          - name: geometry.Vector2D                                 # Use "dot grammar" to point out
                                                                    # the type defined in
-                                                                   # "geometry/Vector2D.yaml" needs
-                                                                   # to be imported to this file.
+                                                                   # "geometry/Vector2D.yaml" that
+                                                                   # needs to be imported to this
+                                                                   # file.
          - name: geometry.Vector3D
            alias: Vector3D                                         # Use "alias" field to rename the
                                                                    # imported type. "alias" will
