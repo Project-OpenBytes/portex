@@ -57,40 +57,43 @@ the schema definition file.
       -  |  JSON
          |  array
       -  False
-      -  |  A JSON object which indicates what types needs to be imported and which package
-         |  these types come from;
+      -  |  A JSON object which indicates what types needs to
+         |  be imported and which package these types come from.
 
    -  -  ``imports.<index>``
       -  |  JSON
          |  object
       -  True
-      -  |  Each item in the ``imports`` array indicates a group of imported types which come from
-         |  a same package
+      -  |  Each item in the ``imports`` array indicates a group
+         |  of imported types which come from  a same package.
 
    -  -  ``imports.<index>.repo``
       -  |  JSON
          |  string
       -  True
-      -  |  The url and the revision of the schema package, which follows the following format:
-         |  "<url>@<rev>"
+      -  |  The url and the revision of the schema package,
+         |  which follows the following format: "<url>@<rev>".
 
    -  -  ``imports.<index>.types``
       -  |  JSON
          |  array
       -  True
-      -  A JSON array to indicate the types needs to be imported from the package to this file.
+      -  |  A JSON array to indicate the types needs to be
+         |  imported from the package to this file.
 
    -  -  ``imports.<index>.types.<index>``
       -  |  JSON
          |  object
       -  True
-      -  Each item in the ``imports.<index>.types`` array indicates one imported type.
+      -  |  Each item in the ``imports.<index>.types``
+         |  array indicates one imported type.
 
    -  -  ``imports.<index>.types.<index>.name``
       -  |  JSON
          |  string
       -  True
-      -  The name of the imported type which follows the :ref:`dot-grammar`
+      -  |  The name of the imported type which follows
+         |  the :ref:`dot-grammar`
 
    -  -  ``imports.<index>.types.<index>.alias``
 
@@ -99,9 +102,11 @@ the schema definition file.
 
       -  False
 
-      -  |  The alias of the imported type. If this field is given, it will replace the
-         |  ``imports.types.<index>.name`` as the unique identifier of the imported type.
-         |  This field is useful for solving the type name conflicts in different packages.
+      -  |  The alias of the imported type. If this field is given,
+         |  it will replace the ``imports.types.<index>.name`` as
+         |  the unique identifier of the imported type. This field
+         |  is useful for solving the type name conflicts in
+         |  different packages.
 
 .. _dot-grammar:
 
