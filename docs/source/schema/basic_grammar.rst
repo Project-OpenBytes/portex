@@ -57,11 +57,11 @@ null.
       -  False
       -  ``False``
       -  |  Default to ``False``, which means all types are not nullable by default.
-         |  If set it to ``True``, which makes the type nullable.
+         |  Setting to ``True`` allows the stored value to be null.
 
 **Examples**:
 
-#. Nullable 32-bits signed integer:
+Nullable 32-bits signed integer:
 
    .. code:: yaml
 
