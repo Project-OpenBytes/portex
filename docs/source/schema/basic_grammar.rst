@@ -34,3 +34,37 @@ So an integer in the range 0~100 can be defined:
 
 Besides the builtin types, the customized types can also be configurable, check
 :doc:`/schema/template_type` for more details.
+
+###############
+ Nullable Type
+###############
+
+Portex provides a common parameter ``nullable`` for all types to indicate whether the value can be
+null.
+
+.. list-table::
+   :header-rows: 1
+   :widths: auto
+
+   -  -  name
+      -  type
+      -  required
+      -  default
+      -  description
+
+   -  -  ``nullable``
+      -  JSON boolean
+      -  False
+      -  ``False``
+      -  |  Default to ``False``, which means all types are not nullable by default.
+         |  If set it to ``True``, which makes the type nullable.
+
+**Examples**:
+
+#. Nullable 32-bits signed integer:
+
+   .. code:: yaml
+
+      ---
+      type: int32
+      nullable: True
