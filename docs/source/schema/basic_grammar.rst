@@ -67,4 +67,4 @@ null.
 
       ---
       type: int32
-      nullable: True
+      nullable: true
