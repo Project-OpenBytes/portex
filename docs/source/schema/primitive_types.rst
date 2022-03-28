@@ -11,11 +11,11 @@ Portex provides a set of primitive types:
 The ``boolean`` type represents a binary value, only two values are supported: ``true`` and
 ``false``
 
-*******
- bytes
-*******
+********
+ binary
+********
 
-The ``bytes`` type represents a sequence of 8-bit unsigned bytes.
+The ``binary`` type represents a sequence of 8-bit unsigned binary.
 
 ********
  string
