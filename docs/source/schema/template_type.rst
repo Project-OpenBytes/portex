@@ -158,14 +158,14 @@ statement which returns a bool value.
 -  ``$params.length < 100``
 -  ``$params.name == "cat"``
 
-*********************
- Parameter "existIf"
-*********************
+**********************
+ Parameter "exist_if"
+**********************
 
-Portex provides a special parameter ``existIf`` to control whether a field in ``record`` exists.
+Portex provides a special parameter ``exist_if`` to control whether a field in ``record`` exists.
 
-When ``declaration.type`` is ``record``, the parameter ``declaration.fields.<index>.existIf`` can be
-used to control whether the field exists.
+When ``declaration.type`` is ``record``, the parameter ``declaration.fields.<index>.exist_if`` can
+be used to control whether the field exists.
 
 .. list-table::
    :header-rows: 1
@@ -177,11 +177,11 @@ used to control whether the field exists.
       -  default
       -  description
 
-   -  -  ``declaration.fields.<index>.existIf``
+   -  -  ``declaration.fields.<index>.exist_if``
       -  JSON boolean
       -  False
       -  True
-      -  The field exists if ``existIf`` is True, otherwise it does not exist.
+      -  The field exists if ``exist_if`` is True, otherwise it does not exist.
 
 **Examples**:
 
@@ -207,10 +207,10 @@ a Point type which can be configured to be 2D or 3D:
             type: int32
 
           - name: z
-            existIf: $params.dimension == "3D" # When "dimension" is "3D", the "z" field exists,
-                                               # this record represent a 3D point with 3 fields: x, y, z
-                                               # When "dimension" is "2D", the "z" field does not exist,
-                                               # this record represent a 2D point with 2 fields: x, y
+            exist_if: $params.dimension == "3D" # When "dimension" is "3D", the "z" field exists,
+                                                # this record represent a 3D point with 3 fields: x, y, z
+                                                # When "dimension" is "2D", the "z" field does not exist,
+                                                # this record represent a 2D point with 2 fields: x, y
             type: int32
 
    after definition, this ``Point`` type can be referenced with a parameter ``dimension``:
