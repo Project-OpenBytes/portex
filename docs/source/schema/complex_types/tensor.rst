@@ -4,9 +4,9 @@
 
 The ``tensor`` type represents an N-dimensional array in which all elements have the same type.
 
-|  Type ``tensor`` has two parameters: ``shape`` and ``dtype``:
-|   - ``shape`` is used to indicate the shape of the tensor.
-|   - ``dtype`` is used to indicate the type of the elements in the tensor.
+|  Type ``tensor`` has two parameters: ``shape`` and ``items``:
+|     - ``shape`` is used to indicate the shape of the tensor.
+|     - ``items`` is used to indicate the type of the elements in the tensor.
 
 .. list-table::
    :header-rows: 1
@@ -24,11 +24,22 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       -  |  Represent the shape of the tensor, the presentation logic is the same as ``numpy``,
          |  and ``null`` can be used to represent a dimension with unlimited length.
 
-   -  -  ``dtype``
+   -  -  ``items``
+      -  |  JSON
+         |  object
+      -  True
+      -  Represent the type of the tensor elements.
+
+   -  -  ``items.type``
       -  |  JSON
          |  string
       -  True
-      -  Represent the type of the tensor elements.
+      -  Represent the type of the items in the tensor.
+
+   -  -  ``items.<type-param>``
+      -  `-`
+      -  `-`
+      -  Represent the type parameter of the items in the tensor.
 
 **Examples**:
 
@@ -39,7 +50,8 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       ---
       type: tensor
       shape: [3, 3]
-      dtype: int32
+      items:
+        type: int32
 
 #. a 640x480 image tensor with 3 channels:
 
@@ -48,7 +60,8 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       ---
       type: tensor
       shape: [640, 480, 3]
-      dtype: int32
+      items:
+        type: int32
 
 #. an integer matrix with unlimited shape:
 
@@ -57,4 +70,5 @@ The ``tensor`` type represents an N-dimensional array in which all elements have
       ---
       type: tensor
       shape: [null, null]
-      dtype: int32
+      items:
+        type: int32
