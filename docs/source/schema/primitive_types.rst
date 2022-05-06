@@ -78,7 +78,7 @@ the range of the number.
       ---
       type: int32
       minimum: 0
-      maximum: 0
+      maximum: 100
 
 #. single precision floating-point number no less than 0:
 
