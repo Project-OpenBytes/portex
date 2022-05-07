@@ -79,29 +79,23 @@ Portex provides ``template`` type to define customized configurable types.
 
 **Examples**:
 
-a Point type with its coordinates data type configurable:
+#. A 2D point type:
 
    .. code:: yaml
 
       # geometry/Point.yaml
       ---
       type: template
-      params:
-        dtype:
-          required: false             # "dtype" is not a required parameter
-          default: float32            # the default value of "dtype" is "float32"
-          options: [float32, float64] # the possible values of "dtype" is "float32" and "float64"
-
       declaration:
         type: record
         fields:
           - name: x
-            type: $params.dtype    # the coordinate data type depends on the input "dtype"
+            type: int32
 
           - name: y
-            type: $params.dtype
+            type: int32
 
-   after definition, this ``Point`` type can be referenced with a parameter ``dtype``:
+   after definition, this ``Point`` type can be referenced:
 
    .. code:: yaml
 
@@ -110,21 +104,137 @@ a Point type with its coordinates data type configurable:
       fields:
         - name: point1
           type: geometry.Point
-          dtype: float64
 
         - name: point2
           type: geometry.Point
-          dtype: float64
 
    it can be visually represented in table structure:
 
-   +-----------------+-----------------+-----------------+-----------------+
-   | point1                            | point2                            |
-   +-----------------+-----------------+-----------------+-----------------+
-   | x               | y               | x               | y               |
-   +=================+=================+=================+=================+
-   | <float64 value> | <float64 value> | <float64 value> | <float64 value> |
-   +-----------------+-----------------+-----------------+-----------------+
+   +---------------+---------------+---------------+---------------+
+   | point1                        | point2                        |
+   +---------------+---------------+---------------+---------------+
+   | x             | y             | x             | y             |
+   +===============+===============+===============+===============+
+   | <int32 value> | <int32 value> | <int32 value> | <int32 value> |
+   +---------------+---------------+---------------+---------------+
+
+#. A 2D point type with configurable label:
+
+   .. code:: yaml
+
+      # geometry/LabeledPoint.yaml
+      ---
+      type: template
+      params:
+        labels:
+          required: true               # "labels" is a required parameter
+
+      declaration:
+        type: record
+        fields:
+          - name: x
+            type: int32
+
+          - name: y
+            type: int32
+
+          - name: label
+            type: enum
+            values: $params.labels     # the values of enums depends on the input "labels"
+
+   after definition, this ``LabeledPoint`` type can be referenced:
+
+   .. code:: yaml
+
+      ---
+      type: record
+      fields:
+        - name: labeled_point
+          type: geometry.LabeledPoint
+          values: ["visble", "occluded"]
+
+   it can be visually represented in table structure:
+
+   +---------------+---------------+--------------------------+
+   | labeled_point                                            |
+   +---------------+---------------+--------------------------+
+   | x             | y             | label                    |
+   +===============+===============+==========================+
+   | <int32 value> | <int32 value> | <"visble" or "occluded"> |
+   +---------------+---------------+--------------------------+
+
+****************
+ Unpack Grammar
+****************
+
+Portex provides unpack grammar for JSON object and JSON array in template type.
+
+Object unpack
+=============
+
+Portex use ``+`` symbol for object unpack, it is used to unpack the JSON object parameter and merge
+it into another JSON object.
+
+This grammar is used to create the template type whose internal type is configurable.
+Just like the builtin ``array`` type, the type of the array elements can be configured by its
+``items`` parameter
+
+.. note::
+
+   Portex object unpack is similar with `YAML merge grammar`_.
+
+.. _YAML merge grammar: https://yaml.org/type/merge.html
+
+**Examples**:
+
+#. A 2D point type with configurable coordinate type:
+
+   .. code:: yaml
+
+      # geometry/Point.yaml
+      ---
+      type: template
+      params:
+        coords:
+          required: false             # "coords" is not a required parameter
+          default:
+            type: int32               # the default value of "coords" is '{"type": "int32"}'
+
+      declaration:
+        type: record
+        fields:
+          - name: x
+            +: $params.coords          # use object unpack symbol "+" to unpack $params.coords
+                                       # which makes the coordinate type configurable
+                                       # params.coords should be a JSON object
+
+          - name: y
+            +: $params.coords
+
+   after definition, this ``Point`` type can be referenced with a parameter ``coords``:
+
+   .. code:: yaml
+
+      ---
+      type: record
+      fields:
+        - name: point1
+          type: geometry.Point
+          coords:
+            type: float32         # set the coordinate type to "float32"
+
+        - name: point2
+          type: geometry.Point    # use the default type "int32"
+
+   it can be visually represented in table structure:
+
+   +-----------------+-----------------+---------------+---------------+
+   | point1                            | point2                        |
+   +-----------------+-----------------+---------------+---------------+
+   | x               | y               | x             | y             |
+   +=================+=================+===============+===============+
+   | <float32 value> | <float32 value> | <int32 value> | <int32 value> |
+   +-----------------+-----------------+---------------+---------------+
 
 ************
  Expression
