@@ -2,8 +2,8 @@
  Template Type
 ###############
 
-One of the most important features in Portex is configurable type, different types provide
-different parameters to adjust their behaviors.
+One of the most important features in Portex is configurable type, different types provide different
+parameters to adjust their behaviors.
 
 Such as ``numeric types`` provide ``maximum`` and ``minimum``, ``record`` type provides ``fields``
 etc.
@@ -15,8 +15,8 @@ etc.
 Portex provides ``template`` type to define customized configurable types.
 
 |  Two parameters are provided in ``template`` type:
-|   - ``params`` is used to indicate the parameters.
-|   - ``declaration`` is used to indicate how the parameters take effect.
+|     - ``params`` is used to indicate the parameters.
+|     - ``declaration`` is used to indicate how the parameters take effect.
 
 .. list-table::
    :header-rows: 1
@@ -175,15 +175,14 @@ Object unpack
 Portex use ``+`` symbol for object unpack, it is used to unpack the JSON object parameter and merge
 it into another JSON object.
 
-This grammar is used to create the template type whose internal type is configurable.
-Just like the builtin ``array`` type, the type of the array elements can be configured by its
-``items`` parameter
+This grammar is used to create the template type whose internal type is configurable. Just like the
+builtin ``array`` type, the type of the array elements can be configured by its ``items`` parameter
 
 .. note::
 
    Portex object unpack is similar with `YAML merge grammar`_.
 
-.. _YAML merge grammar: https://yaml.org/type/merge.html
+.. _yaml merge grammar: https://yaml.org/type/merge.html
 
 **Examples**:
 
