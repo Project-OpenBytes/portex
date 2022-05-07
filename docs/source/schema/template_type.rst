@@ -261,6 +261,68 @@ its ``items`` parameter
           - name: y
             type: $params.coords
 
+Array unpack
+============
+
+Portex also use ``+`` symbol for array unpack. The grammar ``+$params.<name>`` is used to unpack the
+JSON array parameter and merge it into another JSON array.
+
+This grammar can be used to extend the record fields.
+
+**Examples**:
+
+#. A 2D point type with extensible fields:
+
+   .. code:: yaml
+
+      # geometry/Point.yaml
+      ---
+      type: template
+      params:
+        extra:
+          required: false
+          default: []        # the default value is an empty array, which means add no fields
+
+      declaration:
+        type: record
+        fields:
+          - name: x
+            type: int32
+
+          - name: y
+            type: int32
+
+          - +$params.extra   # use "+$params.<name>" grammar to unpack the parameter "extra"
+                             # which makes the record fields extensible
+                             # params.extra should be a JSON array
+
+   after definition, this ``Point`` type can be referenced with a parameter ``extra``:
+
+   .. code:: yaml
+
+      ---
+      type: record
+      fields:
+        - name: point1
+          type: geometry.Point
+          extra:
+            - name: label         # set "label" as a extra field
+              type: enum
+              values: ["visble", "occluded"]
+
+        - name: point2
+          type: geometry.Point    # the default behavior is no extra field
+
+   it can be visually represented in table structure:
+
+   +---------------+---------------+--------------------------+---------------+---------------+
+   | point1                                                   | point2                        |
+   +---------------+---------------+--------------------------+---------------+---------------+
+   | x             | y             | label                    | x             | y             |
+   +===============+===============+==========================+===============+===============+
+   | <int32 value> | <int32 value> | <"visble" or "occluded"> | <int32 value> | <int32 value> |
+   +---------------+---------------+--------------------------+---------------+---------------+
+
 ************
  Expression
 ************
