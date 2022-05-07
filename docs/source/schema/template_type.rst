@@ -236,6 +236,31 @@ its ``items`` parameter
    | <float32 value> | <float32 value> | <int32 value> | <int32 value> |
    +-----------------+-----------------+---------------+---------------+
 
+.. error::
+
+   | Setting the type name as a parameter is not allowed in Portex.
+   | The following negative example shows this forbidden behavior:
+
+   .. code:: yaml
+
+      # geometry/Point.yaml
+      ---
+      type: template
+      params:
+        coords:
+          required: false
+          default: int32          # $params.coords represent the name of the type
+
+      declaration:
+        type: record
+        fields:
+          - name: x
+            type: $params.coords  # The type name should be put after keyword "type:"
+                                  # set the type name as parameter is not allowed in Portex
+
+          - name: y
+            type: $params.coords
+
 ************
  Expression
 ************
