@@ -176,7 +176,8 @@ Portex use ``+`` symbol for object unpack, it is used to unpack the JSON object 
 it into another JSON object.
 
 This grammar is used to create the template type whose internal type is configurable. Just like the
-builtin ``array`` type, the type of the array elements can be configured by its ``items`` parameter
+builtin :doc:`/schema/complex_types/array` type, the type of the array elements can be configured by
+its ``items`` parameter
 
 .. note::
 
