@@ -163,11 +163,44 @@ Portex provides ``template`` type to define customized configurable types.
    | <int32 value> | <int32 value> | <"visble" or "occluded"> |
    +---------------+---------------+--------------------------+
 
+.. error::
+
+   Setting the type name as a parameter, as shown in the following example, is not allowed in
+   Portex.
+
+   .. code:: yaml
+
+      # geometry/Point.yaml
+      ---
+      type: template
+      params:
+        coords:
+          required: false
+          default: int32          # $params.coords represent the name of the type
+
+      declaration:
+        type: record
+        fields:
+          - name: x
+            type: $params.coords  # The type name should be put after keyword "type:"
+                                  # set the type name as parameter is not allowed in Portex
+
+          - name: y
+            type: $params.coords
+
+.. note::
+
+   Check the :ref:`object unpack <object_unpack>` grammar for creating a template type with
+   configurable internal types.
+
+
 ****************
  Unpack Grammar
 ****************
 
 Portex provides unpack grammar for JSON object and JSON array in template type.
+
+.. _object_unpack:
 
 Object unpack
 =============
@@ -235,31 +268,6 @@ its ``items`` parameter
    +=================+=================+===============+===============+
    | <float32 value> | <float32 value> | <int32 value> | <int32 value> |
    +-----------------+-----------------+---------------+---------------+
-
-.. error::
-
-   | Setting the type name as a parameter is not allowed in Portex.
-   | The following negative example shows this forbidden behavior:
-
-   .. code:: yaml
-
-      # geometry/Point.yaml
-      ---
-      type: template
-      params:
-        coords:
-          required: false
-          default: int32          # $params.coords represent the name of the type
-
-      declaration:
-        type: record
-        fields:
-          - name: x
-            type: $params.coords  # The type name should be put after keyword "type:"
-                                  # set the type name as parameter is not allowed in Portex
-
-          - name: y
-            type: $params.coords
 
 Array unpack
 ============
