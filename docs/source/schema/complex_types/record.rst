@@ -83,7 +83,6 @@ corresponding type.
 
         - name: age
           type: int32
-          minimum: 0
 
         - name: student number
           type: string

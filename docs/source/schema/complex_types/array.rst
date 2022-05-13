@@ -45,7 +45,7 @@ The ``array`` type represents a sequence of elements which have the same type.
 
 **Examples**:
 
-#. a natural number array with unlimited length:
+#. an int32 array with unlimited length:
 
    .. code:: yaml
 
@@ -53,9 +53,8 @@ The ``array`` type represents a sequence of elements which have the same type.
       type: array
       items:
         type: int32
-        minimum: 0
 
-#. an integer array with fixed length:
+#. an int32 array with fixed length:
 
    .. code:: yaml
 

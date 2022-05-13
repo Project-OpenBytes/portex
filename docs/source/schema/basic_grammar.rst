@@ -20,17 +20,16 @@ string. The bulitin supported types can be found in :doc:`/schema/primitive_type
 The most important feature of Portex is that the type is configurable, different types has different
 parameters.
 
-For example, the :ref:`numeric types <numeric_types>` ``int32`` has parameters ``minimum`` and
-``maximum`` which limits the range of the ``int32`` number.
+For example, the :doc:`/schema/complex_types/enum` type has parameters ``values`` to indicate the
+possible values of the enum.
 
-So an integer in the range 0~100 can be defined:
+So an enum of ``"dog"`` and ``"cat"`` can be defined:
 
 .. code:: yaml
 
    ---
-   type: int32
-   minimum: 0
-   maximum: 100
+   type: enum
+   values: ["dog", "cat"]
 
 Besides the builtin types, the customized types can also be configurable, check
 :doc:`/schema/template_type` for more details.
