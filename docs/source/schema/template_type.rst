@@ -379,14 +379,14 @@ be used to control whether the field exists.
       -  description
 
    -  -  ``declaration.fields.<index>.exist_if``
-      -  JSON boolean
+      -  -
       -  False
       -  True
-      -  The field exists if ``exist_if`` is True, otherwise it does not exist.
+      -  The field exists if the value of ``exist_if`` is not ``null``, otherwise it does not exist.
 
 **Examples**:
 
-a Point type which can be configured to be 2D or 3D:
+a Point type with or without a enum label:
 
    .. code:: yaml
 
@@ -394,8 +394,8 @@ a Point type which can be configured to be 2D or 3D:
       ---
       type: template
       parameters:
-        - name: dimension:
-          options: [2D, 3D]
+        - name: labels
+          default: null
 
       declaration:
         type: record
@@ -406,34 +406,31 @@ a Point type which can be configured to be 2D or 3D:
           - name: y
             type: int32
 
-          - name: z
-            exist_if: $dimension == "3D"        # When "dimension" is "3D", the "z" field exists,
-                                                # this record represent a 3D point with 3 fields: x, y, z
-                                                # When "dimension" is "2D", the "z" field does not exist,
-                                                # this record represent a 2D point with 2 fields: x, y
-            type: int32
+          - name: label
+            exist_if: $labels              # When "labels" is not "null", the "label" field exists,
+            type: enum
+            values: $labels
 
-   after definition, this ``Point`` type can be referenced with a parameter ``dimension``:
+   after definition, this ``Point`` type can be referenced with a parameter ``labels``:
 
    .. code:: yaml
 
       ---
       type: record
       fields:
-        - name: point2D
+        - name: point
           type: geometry.Point
-          dimension: 2D
 
-        - name: point3D
+        - name: labeled_point
           type: geometry.Point
-          dimension: 3D
+          labels: ["visble", "occluded"]
 
    it can be visually represented in table structure:
 
-   +----------------+----------------+----------------+-----------------+-----------------+
-   | point2D                         | point3D                                            |
-   +----------------+----------------+----------------+-----------------+-----------------+
-   | x              | y              | x              | y               | z               |
-   +================+================+================+=================+=================+
-   | <x coordinate> | <y coordinate> | <x coordinate> | <y coordinate>  | <z coordinate>  |
-   +----------------+----------------+----------------+-----------------+-----------------+
+   +---------------+---------------+---------------+----------------+---------------------------+
+   | point                         | labeled_point                                              |
+   +---------------+---------------+---------------+----------------+---------------------------+
+   | x             | y             | x             | y              | label                     |
+   +===============+===============+===============+================+===========================+
+   | <int32 value> | <int32 value> | <int32 value> | <int32 value>  | <"visble" or "occluded">  |
+   +---------------+---------------+---------------+----------------+---------------------------+
