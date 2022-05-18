@@ -63,7 +63,7 @@ Portex provides ``template`` type to define customized configurable types.
       -  |  JSON
          |  object
       -  True
-      -  |  The declaration of template, use ``$params.<name>`` to indicate how different
+      -  |  The declaration of template, use ``$<name>`` to indicate how different
          |  parameters take effect in the template.
 
    -  -  ``declaration.type``
@@ -139,7 +139,7 @@ Portex provides ``template`` type to define customized configurable types.
 
           - name: label
             type: enum
-            values: $params.labels     # the values of enums depends on the input "labels"
+            values: $labels             # the values of enums depends on the input "labels"
 
    after definition, this ``LabeledPoint`` type can be referenced:
 
@@ -174,17 +174,17 @@ Portex provides ``template`` type to define customized configurable types.
       type: template
       params:
         - name: coords
-          default: int32          # $params.coords represent the name of the type
+          default: int32          # $coords represent the name of the type
 
       declaration:
         type: record
         fields:
           - name: x
-            type: $params.coords  # The type name should be put after keyword "type:"
+            type: $coords         # The type name should be put after keyword "type:"
                                   # set the type name as parameter is not allowed in Portex
 
           - name: y
-            type: $params.coords
+            type: $coords
 
 .. note::
 
@@ -234,12 +234,12 @@ its ``items`` parameter
         type: record
         fields:
           - name: x
-            +: $params.coords        # use object unpack symbol "+" to unpack $params.coords
+            +: $coords               # use object unpack symbol "+" to unpack $coords
                                      # which makes the coordinate type configurable
-                                     # params.coords should be a JSON object
+                                     # $coords should be a JSON object
 
           - name: y
-            +: $params.coords
+            +: $coords
 
    after definition, this ``Point`` type can be referenced with a parameter ``coords``:
 
@@ -269,7 +269,7 @@ its ``items`` parameter
 Array unpack
 ============
 
-Portex also use ``+`` symbol for array unpack. The grammar ``+$params.<name>`` is used to unpack the
+Portex also use ``+`` symbol for array unpack. The grammar ``+$<name>`` is used to unpack the
 JSON array parameter and merge it into another JSON array.
 
 This grammar can be used to extend the record fields.
@@ -296,9 +296,9 @@ This grammar can be used to extend the record fields.
           - name: y
             type: int32
 
-          - +$params.extra   # use "+$params.<name>" grammar to unpack the parameter "extra"
+          - +$extra          # use "+$<name>" grammar to unpack the parameter "extra"
                              # which makes the record fields extensible
-                             # params.extra should be a JSON array
+                             # $extra should be a JSON array
 
    after definition, this ``Point`` type can be referenced with a parameter ``extra``:
 
@@ -334,7 +334,7 @@ This grammar can be used to extend the record fields.
 Variable and Constant
 =====================
 
--  **Variable**: The symbol ``$`` is used to indicate variables, use ``$params.<name>`` to expand
+-  **Variable**: The symbol ``$`` is used to indicate variables, use ``$<name>`` to expand
    the input parameter in the template.
 -  **Constant**: The JSON value is used to indicate constants. For example, use ``0``, ``20.5`` to
    represent numbers, use "cat", "dog" to represent strings.
@@ -356,8 +356,8 @@ statement which returns a bool value.
 
 **Examples**:
 
--  ``$params.length < 100``
--  ``$params.name == "cat"``
+-  ``$length < 100``
+-  ``$name == "cat"``
 
 **********************
  Parameter "exist_if"
@@ -407,7 +407,7 @@ a Point type which can be configured to be 2D or 3D:
             type: int32
 
           - name: z
-            exist_if: $params.dimension == "3D" # When "dimension" is "3D", the "z" field exists,
+            exist_if: $dimension == "3D"        # When "dimension" is "3D", the "z" field exists,
                                                 # this record represent a 3D point with 3 fields: x, y, z
                                                 # When "dimension" is "2D", the "z" field does not exist,
                                                 # this record represent a 2D point with 2 fields: x, y
