@@ -341,13 +341,11 @@ be used to control whether the field exists.
    :widths: auto
 
    -  -  name
-      -  type
       -  required
       -  default
       -  description
 
    -  -  ``declaration.fields.<index>.exist_if``
-      -  -
       -  False
       -  True
       -  The field exists if the value of ``exist_if`` is not ``null``, otherwise it does not exist.
