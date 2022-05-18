@@ -191,6 +191,80 @@ Portex provides ``template`` type to define customized configurable types.
    Check the :ref:`object unpack <object_unpack>` grammar for creating a template type with
    configurable internal types.
 
+**********************
+ Parameter "exist_if"
+**********************
+
+Portex provides a special parameter ``exist_if`` to control whether a field in ``record`` exists.
+
+When ``declaration.type`` is ``record``, the parameter ``declaration.fields.<index>.exist_if`` can
+be used to control whether the field exists.
+
+.. list-table::
+   :header-rows: 1
+   :widths: auto
+
+   -  -  name
+      -  required
+      -  default
+      -  description
+
+   -  -  ``declaration.fields.<index>.exist_if``
+      -  False
+      -  True
+      -  |  The field exists if the value of ``exist_if`` is not ``null``,
+         |  otherwise it does not exist.
+
+**Examples**:
+
+a Point type with or without a enum label:
+
+   .. code:: yaml
+
+      # geometry/Point.yaml
+      ---
+      type: template
+      parameters:
+        - name: labels
+          default: null
+
+      declaration:
+        type: record
+        fields:
+          - name: x
+            type: int32
+
+          - name: y
+            type: int32
+
+          - name: label
+            exist_if: $labels              # When "labels" is not "null", the "label" field exists,
+            type: enum
+            values: $labels
+
+   after definition, this ``Point`` type can be referenced with a parameter ``labels``:
+
+   .. code:: yaml
+
+      ---
+      type: record
+      fields:
+        - name: point
+          type: geometry.Point
+
+        - name: labeled_point
+          type: geometry.Point
+          labels: ["visble", "occluded"]
+
+   it can be visually represented in table structure:
+
+   +---------------+---------------+---------------+----------------+---------------------------+
+   | point                         | labeled_point                                              |
+   +---------------+---------------+---------------+----------------+---------------------------+
+   | x             | y             | x             | y              | label                     |
+   +===============+===============+===============+================+===========================+
+   | <int32 value> | <int32 value> | <int32 value> | <int32 value>  | <"visble" or "occluded">  |
+   +---------------+---------------+---------------+----------------+---------------------------+
 
 ****************
  Unpack Grammar
@@ -326,77 +400,3 @@ This grammar can be used to extend the record fields.
    +===============+===============+==========================+===============+===============+
    | <int32 value> | <int32 value> | <"visble" or "occluded"> | <int32 value> | <int32 value> |
    +---------------+---------------+--------------------------+---------------+---------------+
-
-**********************
- Parameter "exist_if"
-**********************
-
-Portex provides a special parameter ``exist_if`` to control whether a field in ``record`` exists.
-
-When ``declaration.type`` is ``record``, the parameter ``declaration.fields.<index>.exist_if`` can
-be used to control whether the field exists.
-
-.. list-table::
-   :header-rows: 1
-   :widths: auto
-
-   -  -  name
-      -  required
-      -  default
-      -  description
-
-   -  -  ``declaration.fields.<index>.exist_if``
-      -  False
-      -  True
-      -  The field exists if the value of ``exist_if`` is not ``null``, otherwise it does not exist.
-
-**Examples**:
-
-a Point type with or without a enum label:
-
-   .. code:: yaml
-
-      # geometry/Point.yaml
-      ---
-      type: template
-      parameters:
-        - name: labels
-          default: null
-
-      declaration:
-        type: record
-        fields:
-          - name: x
-            type: int32
-
-          - name: y
-            type: int32
-
-          - name: label
-            exist_if: $labels              # When "labels" is not "null", the "label" field exists,
-            type: enum
-            values: $labels
-
-   after definition, this ``Point`` type can be referenced with a parameter ``labels``:
-
-   .. code:: yaml
-
-      ---
-      type: record
-      fields:
-        - name: point
-          type: geometry.Point
-
-        - name: labeled_point
-          type: geometry.Point
-          labels: ["visble", "occluded"]
-
-   it can be visually represented in table structure:
-
-   +---------------+---------------+---------------+----------------+---------------------------+
-   | point                         | labeled_point                                              |
-   +---------------+---------------+---------------+----------------+---------------------------+
-   | x             | y             | x             | y              | label                     |
-   +===============+===============+===============+================+===========================+
-   | <int32 value> | <int32 value> | <int32 value> | <int32 value>  | <"visble" or "occluded">  |
-   +---------------+---------------+---------------+----------------+---------------------------+
