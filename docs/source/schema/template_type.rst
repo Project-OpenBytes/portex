@@ -15,7 +15,7 @@ etc.
 Portex provides ``template`` type to define customized configurable types.
 
 |  Two parameters are provided in ``template`` type:
-|     - ``params`` is used to indicate the parameters.
+|     - ``parameters`` is used to indicate the parameters.
 |     - ``declaration`` is used to indicate how the parameters take effect.
 
 .. list-table::
@@ -27,32 +27,32 @@ Portex provides ``template`` type to define customized configurable types.
       -  required
       -  description
 
-   -  -  ``params``
+   -  -  ``parameters``
       -  |  JSON
          |  array
       -  False
       -  Indicate all the parameters for this template.
 
-   -  -  ``params.<index>``
+   -  -  ``parameters.<index>``
       -  |  JSON
          |  object
       -  True
-      -  |  Each element in ``params`` defines a parameter.
+      -  |  Each element in ``parameters`` defines a parameter.
 
-   -  -  ``params.<index>.name``
+   -  -  ``parameters.<index>.name``
       -  |  JSON
          |  string
       -  True
       -  The name of the parameter.
 
-   -  -  ``params.<index>.default``
+   -  -  ``parameters.<index>.default``
       -  `-`
       -  False
       -  | The default value of the parameter.
          | The default value is set -> This is a optional parameter.
          | The default value is not set -> This is a required parameter.
 
-   -  -  ``params.<index>.options``
+   -  -  ``parameters.<index>.options``
       -  |  JSON
          |  array
       -  False
@@ -125,7 +125,7 @@ Portex provides ``template`` type to define customized configurable types.
       # geometry/LabeledPoint.yaml
       ---
       type: template
-      params:
+      parameters:
         - name: labels                 # "labels" is a required parameter
 
       declaration:
@@ -172,7 +172,7 @@ Portex provides ``template`` type to define customized configurable types.
       # geometry/Point.yaml
       ---
       type: template
-      params:
+      parameters:
         - name: coords
           default: int32          # $coords represent the name of the type
 
@@ -225,7 +225,7 @@ its ``items`` parameter
       # geometry/Point.yaml
       ---
       type: template
-      params:
+      parameters:
         - name: coords
           default:                    # "coords" is not a required parameter
             type: int32               # the default value of "coords" is '{"type": "int32"}'
@@ -283,7 +283,7 @@ This grammar can be used to extend the record fields.
       # geometry/Point.yaml
       ---
       type: template
-      params:
+      parameters:
         - name: extra
           default: []        # the default value is an empty array, which means add no fields
 
@@ -393,7 +393,7 @@ a Point type which can be configured to be 2D or 3D:
       # geometry/Point.yaml
       ---
       type: template
-      params:
+      parameters:
         - name: dimension:
           options: [2D, 3D]
 
