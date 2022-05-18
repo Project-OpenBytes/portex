@@ -327,38 +327,6 @@ This grammar can be used to extend the record fields.
    | <int32 value> | <int32 value> | <"visble" or "occluded"> | <int32 value> | <int32 value> |
    +---------------+---------------+--------------------------+---------------+---------------+
 
-************
- Expression
-************
-
-Variable and Constant
-=====================
-
--  **Variable**: The symbol ``$`` is used to indicate variables, use ``$<name>`` to expand
-   the input parameter in the template.
--  **Constant**: The JSON value is used to indicate constants. For example, use ``0``, ``20.5`` to
-   represent numbers, use "cat", "dog" to represent strings.
-
-Conditional Statement
-=====================
-
-Portex provides the following basic conditional binary operators:
-
--  ``==``
--  ``!=``
--  ``>=``
--  ``<=``
--  ``>``
--  ``<``
-
-Put variables or constants on the left and right side of these operators to get a conditional
-statement which returns a bool value.
-
-**Examples**:
-
--  ``$length < 100``
--  ``$name == "cat"``
-
 **********************
  Parameter "exist_if"
 **********************
