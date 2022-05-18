@@ -29,30 +29,30 @@ Portex provides ``template`` type to define customized configurable types.
 
    -  -  ``params``
       -  |  JSON
-         |  object
-      -  True
+         |  array
+      -  False
       -  Indicate all the parameters for this template.
 
-   -  -  ``params.<name>``
+   -  -  ``params.<index>``
       -  |  JSON
          |  object
       -  True
-      -  |  Every element in ``params`` defines a parameter:
-         |  - <key> is name of the parameter
-         |  - <value> is the basic info of the parameter
+      -  |  Each element in ``params`` defines a parameter.
 
-   -  -  ``params.<name>.required``
+   -  -  ``params.<index>.name``
       -  |  JSON
          |  string
       -  True
-      -  Whether this parameter is required.
+      -  The name of the parameter.
 
-   -  -  ``params.<name>.default``
+   -  -  ``params.<index>.default``
       -  `-`
       -  False
-      -  The default value of this parameter. It is meaningless when this parameter is required.
+      -  | The default value of the parameter.
+         | The default value is set -> This is a optional parameter.
+         | The default value is not set -> This is a required parameter.
 
-   -  -  ``params.<name>.options``
+   -  -  ``params.<index>.options``
       -  |  JSON
          |  array
       -  False
@@ -126,8 +126,7 @@ Portex provides ``template`` type to define customized configurable types.
       ---
       type: template
       params:
-        labels:
-          required: true               # "labels" is a required parameter
+        - name: labels                 # "labels" is a required parameter
 
       declaration:
         type: record
@@ -174,8 +173,7 @@ Portex provides ``template`` type to define customized configurable types.
       ---
       type: template
       params:
-        coords:
-          required: false
+        - name: coords
           default: int32          # $params.coords represent the name of the type
 
       declaration:
@@ -228,18 +226,17 @@ its ``items`` parameter
       ---
       type: template
       params:
-        coords:
-          required: false             # "coords" is not a required parameter
-          default:
+        - name: coords
+          default:                    # "coords" is not a required parameter
             type: int32               # the default value of "coords" is '{"type": "int32"}'
 
       declaration:
         type: record
         fields:
           - name: x
-            +: $params.coords          # use object unpack symbol "+" to unpack $params.coords
-                                       # which makes the coordinate type configurable
-                                       # params.coords should be a JSON object
+            +: $params.coords        # use object unpack symbol "+" to unpack $params.coords
+                                     # which makes the coordinate type configurable
+                                     # params.coords should be a JSON object
 
           - name: y
             +: $params.coords
@@ -287,8 +284,7 @@ This grammar can be used to extend the record fields.
       ---
       type: template
       params:
-        extra:
-          required: false
+        - name: extra
           default: []        # the default value is an empty array, which means add no fields
 
       declaration:
@@ -398,8 +394,7 @@ a Point type which can be configured to be 2D or 3D:
       ---
       type: template
       params:
-        dimension:
-          required: true
+        - name: dimension:
           options: [2D, 3D]
 
       declaration:
