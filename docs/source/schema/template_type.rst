@@ -49,15 +49,15 @@ Portex provides ``template`` type to define customized configurable types.
       -  `-`
       -  False
       -  | The default value of the parameter.
-         | The default value is set -> This is a optional parameter.
-         | The default value is not set -> This is a required parameter.
+         | The parameter is optional if the default value is set.
+         | The parameter is required if the default value is not set.
 
    -  -  ``parameters.<index>.options``
       -  |  JSON
          |  array
       -  False
-      -  |  This parameter uses an array to list all possible values, if the input parameter value
-         |  is not listed in the array, it will not be accepted.
+      -  |  An array to list all possible values.
+         |  Parameter value not listed in the array will not be accepted.
 
    -  -  ``declaration``
       -  |  JSON
@@ -70,7 +70,7 @@ Portex provides ``template`` type to define customized configurable types.
       -  |  JSON
          |  string
       -  True
-      -  The actual type of the template.
+      -  The type of the template.
 
    -  -  ``declaration.<type-param>``
       -  `-`
@@ -139,7 +139,7 @@ Portex provides ``template`` type to define customized configurable types.
 
           - name: label
             type: enum
-            values: $labels             # the values of enums depends on the input "labels"
+            values: $labels             # the values of enums depend on the input "labels"
 
    after definition, this ``LabeledPoint`` type can be referenced:
 
@@ -213,7 +213,7 @@ be used to control whether the field exists.
       -  False
       -  True
       -  |  The field exists if the value of ``exist_if`` is not ``null``,
-         |  otherwise it does not exist.
+         |  otherwise it does not.
 
 **Examples**:
 
