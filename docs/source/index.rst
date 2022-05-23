@@ -37,7 +37,7 @@ legibility.
 .. toctree::
    :maxdepth: 2
 
-   schema/basic_grammar
+   schema/basic_syntax
    schema/primitive_types
    schema/complex_types/index
    schema/type_import

@@ -93,7 +93,7 @@ the schema definition file.
          |  string
       -  True
       -  |  The name of the imported type which follows
-         |  the :ref:`dot-grammar`
+         |  the :ref:`dot-syntax`
 
    -  -  ``imports.<index>.types.<index>.alias``
 
@@ -108,14 +108,14 @@ the schema definition file.
          |  is useful for solving the type name conflicts in
          |  different packages.
 
-.. _dot-grammar:
+.. _dot-syntax:
 
-Dot Grammar
-===========
+Dot Syntax
+==========
 
-The **doc grammar** is used for referencing pre-defined type.
+The **doc syntax** is used for referencing pre-defined type.
 
-Dot grammar is:
+Dot syntax is:
 
 #. Based on the file path of the schema structure file;
 #. Use dot ``.`` to replace the file separator ( ``/`` for Linux and ``\`` for Windows);
@@ -160,7 +160,7 @@ Here is how the ``Vector2D`` and ``Vector3D`` are imported:
                                                                    # point out where the source code
                                                                    # comes from.
        types:
-         - name: geometry.Vector2D                                 # Use "dot grammar" to point out
+         - name: geometry.Vector2D                                 # Use "dot syntax" to point out
                                                                    # the type defined in
                                                                    # "geometry/Vector2D.yaml" that
                                                                    # needs to be imported to this

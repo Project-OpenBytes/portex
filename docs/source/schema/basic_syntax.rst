@@ -1,8 +1,8 @@
-###############
- Basic Grammar
-###############
+##############
+ Basic Syntax
+##############
 
-Here is the basic grammar of Portex:
+Here is the basic syntax of Portex:
 
 .. code:: yaml
 

@@ -188,7 +188,7 @@ Portex provides ``template`` type to define customized configurable types.
 
 .. note::
 
-   Check the :ref:`object unpack <object_unpack>` grammar for creating a template type with
+   Check the :ref:`object unpack <object_unpack>` syntax for creating a template type with
    configurable internal types.
 
 **********************
@@ -266,11 +266,11 @@ a Point type with or without a enum label:
    | <int32 value> | <int32 value> | <int32 value> | <int32 value>  | <"visble" or "occluded">  |
    +---------------+---------------+---------------+----------------+---------------------------+
 
-****************
- Unpack Grammar
-****************
+***************
+ Unpack Syntax
+***************
 
-Portex provides unpack grammar for JSON object and JSON array in template type.
+Portex provides unpack syntax for JSON object and JSON array in template type.
 
 .. _object_unpack:
 
@@ -280,15 +280,15 @@ Object unpack
 Portex use ``+`` symbol for object unpack, it is used to unpack the JSON object parameter and merge
 it into another JSON object.
 
-This grammar is used to create the template type whose internal type is configurable. Just like the
+This syntax is used to create the template type whose internal type is configurable. Just like the
 builtin :doc:`/schema/complex_types/array` type, the type of the array elements can be configured by
 its ``items`` parameter
 
 .. note::
 
-   Portex object unpack is similar with `YAML merge grammar`_.
+   Portex object unpack is similar with `YAML merge key`_.
 
-.. _yaml merge grammar: https://yaml.org/type/merge.html
+.. _yaml merge key: https://yaml.org/type/merge.html
 
 **Examples**:
 
@@ -343,10 +343,10 @@ its ``items`` parameter
 Array unpack
 ============
 
-Portex also use ``+`` symbol for array unpack. The grammar ``+$<name>`` is used to unpack the
+Portex also use ``+`` symbol for array unpack. The syntax ``+$<name>`` is used to unpack the
 JSON array parameter and merge it into another JSON array.
 
-This grammar can be used to extend the record fields.
+This syntax can be used to extend the record fields.
 
 **Examples**:
 
@@ -370,7 +370,7 @@ This grammar can be used to extend the record fields.
           - name: y
             type: int32
 
-          - +$extra          # use "+$<name>" grammar to unpack the parameter "extra"
+          - +$extra          # use "+$<name>" syntax to unpack the parameter "extra"
                              # which makes the record fields extensible
                              # $extra should be a JSON array
 
