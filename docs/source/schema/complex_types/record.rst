@@ -2,10 +2,14 @@
  record
 ########
 
-The ``record`` type is where a user can define complex data structures by grouping related variables together in the same place. It is similar to 
-``struct`` in C++ or the ``Series`` in pandas. It is preferred to use ``record`` to hold the grouped data in each row, and a column, in Portex, is a series of records of the same type.
+The ``record`` type is where a user can define complex data structures by grouping related variables
+together in the same place. It is similar to ``struct`` in C++ or the ``Series`` in pandas. It is
+preferred to use ``record`` to hold the grouped data in each row, and a column, in Portex, is a
+series of records of the same type.
 
-The parameter ``fields`` is used in the ``record`` to define the member vairables. Each field should have a ``name`` and a ``type``. The ``fields`` is defined in a one dimentional array manner, so it can easily be expanded into a multi-column row.
+The parameter ``fields`` is used in the ``record`` to define the member vairables. Each field should
+have a ``name`` and a ``type``. The ``fields`` is defined in a one dimentional array manner, so it
+can easily be expanded into a multi-column row.
 
 .. list-table::
    :header-rows: 1
@@ -19,7 +23,8 @@ The parameter ``fields`` is used in the ``record`` to define the member vairable
    -  -  ``fields``
       -  JSON array
       -  True
-      -  It is a one dimentional array. Each element in the array represents a member variable of the record. The member variables are ordered.
+      -  |  It is a one dimentional array. Each element in the array
+         |  represents a member variable of the record. The member variables are ordered.
 
    -  -  ``fields.<index>``
       -  JSON object
@@ -34,7 +39,8 @@ The parameter ``fields`` is used in the ``record`` to define the member vairable
    -  -  ``fields.<index>.type``
       -  JSON string
       -  True
-      -  The type of the member variable. It does not have to be a primitive type. It could be any type defined in the context.
+      -  |  The type of the member variable. It does not have to be a primitive type.
+         |  It could be any type defined in the context.
 
    -  -  ``fields.<index>.<type-param>``
       -  `-`
