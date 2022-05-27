@@ -5,8 +5,7 @@
 One of the most important features in Portex is configurable type, different types provide different
 parameters to adjust their behaviors.
 
-Such as ``numeric types`` provide ``maximum`` and ``minimum``, ``record`` type provides ``fields``
-etc.
+Such as ``enum`` type provide ``values``, ``record`` type provides ``fields`` etc.
 
 ************
  Parameters
