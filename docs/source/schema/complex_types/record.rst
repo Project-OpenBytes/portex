@@ -2,8 +2,8 @@
  record
 ########
 
-The ``record`` type is where we can definte complext data stuctures by grouping related variables togather in the same place. It is simiilar to 
-``struct`` in C++ or the ``Series`` in pandas. It is preferred to use `record` to hold the grouped data in each row, and a column, in portex, is a series of records of the same type.
+The ``record`` type is where a user can define complex data structures by grouping related variables together in the same place. It is similar to 
+``struct`` in C++ or the ``Series`` in pandas. It is preferred to use ``record`` to hold the grouped data in each row, and a column, in Portex, is a series of records of the same type.
 
 The parameter ``fields`` is used in the ``record`` to define the member vairables. Each field should have a ``name`` and a ``type``. The ``fields`` is defined in a one dimentional array manner, so it can easily be expanded into a multi-column row.
 
