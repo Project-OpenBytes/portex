@@ -1,7 +1,7 @@
 # Portex
 
 [![Pre-commit](https://github.com/Project-OpenBytes/portex/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/Project-OpenBytes/portex/actions/workflows/pre-commit.yaml)
-[![Documentation Status](https://readthedocs.org/projects/openbytes-schema/badge/?version=latest)](https://openbytes-schema.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/portex/badge/?version=latest)](https://portex.readthedocs.io/en/latest/?badge=latest)
 [![GitHub](https://img.shields.io/github/license/Project-OpenBytes/portex)](https://github.com/Project-OpenBytes/portex/blob/main/LICENSE)
 
 Portex is a schema language for describing the data structure of the objects stored in the table.
@@ -10,4 +10,4 @@ data in the table.
 
 This Github project manages the source code of the Portex design document.
 
-The full design document can be found in [documentation site](http://openbytes-schema.readthedocs.io/en/latest).
+The full design document can be found in [documentation site](https://portex.readthedocs.io/en/latest).
