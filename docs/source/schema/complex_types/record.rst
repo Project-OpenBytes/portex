@@ -2,11 +2,10 @@
  record
 ########
 
-The ``record`` type represents a labeled array capable of holding any data type, just like the
-struct in C++ or the Series in pandas.
+The ``record`` type is where a user can define complex data structures by grouping related variables together in the same place. It is similar to 
+``struct`` in C++ or the ``Series`` in pandas. It is preferred to use ``record`` to hold the grouped data in each row, and a column, in Portex, is a series of records of the same type.
 
-The parameter ``fields`` is provided for the ``record`` to indicate the label name and the
-corresponding type.
+The parameter ``fields`` is used in the ``record`` to define the member vairables. Each field should have a ``name`` and a ``type``. The ``fields`` is defined in a one dimentional array manner, so it can easily be expanded into a multi-column row.
 
 .. list-table::
    :header-rows: 1
@@ -20,33 +19,31 @@ corresponding type.
    -  -  ``fields``
       -  JSON array
       -  True
-      -  |  Each element in the array represents a field of the record,
-         |  and the element order indicates the order of the fields.
+      -  It is a one dimentional array. Each element in the array represents a member variable of the record. The member variables are ordered.
 
    -  -  ``fields.<index>``
       -  JSON object
       -  True
-      -  |  A JSON object to represent the label name and the type
-         |  of a record field.
+      -  One element in the array, which represents a member variable of the record.
 
    -  -  ``fields.<index>.name``
       -  JSON string
       -  True
-      -  Represent the label name of a record field.
+      -  The name of the member variable.
 
    -  -  ``fields.<index>.type``
       -  JSON string
       -  True
-      -  Represent the type of a record field.
+      -  The type of the member variable. It does not have to be a primitive type. It could be any type defined in the context.
 
    -  -  ``fields.<index>.<type-param>``
       -  `-`
       -  False
-      -  Represent the type parameter of a record field.
+      -  Type related parameters.
 
 **Examples**:
 
-#. a 2D point which uses ``x`` and ``y`` to represent its coordinate:
+#. a 2D point which uses ``x`` and ``y`` to represent its coordinates:
 
    .. code:: yaml
 
@@ -59,7 +56,7 @@ corresponding type.
         - name: y
           type: int32
 
-   it can be visually represented in table structure:
+   In a tabular view:
 
    +----------------+----------------+
    | x              | y              |
@@ -67,7 +64,7 @@ corresponding type.
    | <x coordinate> | <y coordinate> |
    +----------------+----------------+
 
-#. a student record which contains the information of a student:
+#. a student record which contains the basic information of a student:
 
    .. code:: yaml
 
@@ -87,7 +84,7 @@ corresponding type.
         - name: student number
           type: string
 
-   it can be visually represented in table structure:
+   In a tabular view:
 
    +----------------+------------------+---------------+------------------+
    | name           | gender           | age           | student number   |
@@ -120,7 +117,7 @@ corresponding type.
             - name: y
               type: int32
 
-   it can be visually represented in table structure:
+   In a tabular view:
 
    +----------------+----------------+----------------+-----------------+
    | point1                          | point2                           |
@@ -131,4 +128,4 @@ corresponding type.
    +----------------+----------------+----------------+-----------------+
 
    This example shows the record can be nested, it can be used to support the multi-indexing feature
-   in table structure.
+   in a columnar store.
