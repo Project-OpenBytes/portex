@@ -18,7 +18,8 @@ The git repository is used as a carrier for a schema package. A schema package i
 developed, and imported through a public git repository.
 
 OpenBytes defines a set of standard formats for open datasets. These formats are put on a Github
-repo and distributed as a schema package whose url is https://github.com/Project-OpenBytes/standard.
+repo and distributed as a schema package whose url is
+https://github.com/Project-OpenBytes/portex-standard.
 
 ********************************
  How to build a schema package?
@@ -65,7 +66,7 @@ the schema definition file.
          |  object
       -  True
       -  |  Each item in the ``imports`` array indicates a group
-         |  of imported types which come from  a same package.
+         |  of imported types which come from a same package.
 
    -  -  ``imports.<index>.repo``
       -  |  JSON
@@ -138,7 +139,7 @@ Example
 =======
 
 For example, two pre-defined types ``Vector2D`` and ``Vector3D`` need to be imported from a Github
-repo, whose url is https://github.com/Project-OpenBytes/standard and the tag is ``v1.0.0``.
+repo, whose url is https://github.com/Project-OpenBytes/portex-standard and the tag is ``v1.0.0``.
 
 The repo file structure is:
 
@@ -156,24 +157,19 @@ Here is how the ``Vector2D`` and ``Vector3D`` are imported:
 
    ---
    imports:
-     - repo: https://github.com/Project-OpenBytes/standard@v1.0.0  # Use "<url>@<rev>" format to
-                                                                   # point out where the source code
-                                                                   # comes from.
+     - repo: https://github.com/Project-OpenBytes/portex-standard@v1.0.0
+                                               # Use "<url>@<rev>" format to # point out where the
+                                               # source code comes from.
        types:
-         - name: geometry.Vector2D                                 # Use "dot syntax" to point out
-                                                                   # the type defined in
-                                                                   # "geometry/Vector2D.yaml" that
-                                                                   # needs to be imported to this
-                                                                   # file.
+         - name: geometry.Vector2D             # Use "dot syntax" to point out the type defined in
+                                               # "geometry/Vector2D.yaml" that needs to be imported
+                                               # to this file.
          - name: geometry.Vector3D
-           alias: Vector3D                                         # Use "alias" field to rename the
-                                                                   # imported type. "alias" will
-                                                                   # replace the origin name as the
-                                                                   # unique identifier. Which means
-                                                                   # "geometry.Vector3D" will be
-                                                                   # treated as illegal name. Only
-                                                                   # "Vector3D" can be used for
-                                                                   # referencing the imported type.
+           alias: Vector3D                     # Use "alias" field to rename the imported type.
+                                               # "alias" will replace the origin name as the unique
+                                               # identifier. Which means "geometry.Vector3D" will
+                                               # be treated as illegal name. Only "Vector3D" can be
+                                               # used for referencing the imported type.
 
    type: record
    fields:
