@@ -17,8 +17,7 @@ Portex provides the basic key ``type``. Its value means the type of data and pre
 string. The bulitin supported types can be found in :doc:`/schema/primitive_types` and
 :doc:`/schema/complex_types/index`.
 
-The most important feature of Portex is that the type is configurable, different types has different
-parameters.
+The most important feature of Portex is that types are composable, complex types can be assembled with other types that have already been definited.
 
 For example, the :doc:`/schema/complex_types/enum` type has parameters ``values`` to indicate the
 possible values of the enum.
