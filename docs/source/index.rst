@@ -40,6 +40,7 @@ legibility.
    schema/basic_syntax
    schema/primitive_types
    schema/complex_types/index
+   schema/temporal_types
    schema/type_import
    schema/template_type
 
